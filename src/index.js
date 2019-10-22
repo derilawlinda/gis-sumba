@@ -15,8 +15,8 @@ ReactDOM.render(<Router>
         <div style={{ width: "100%", height: "500px" }}>
             <div style={{ width: "100%", height: "10px" }}></div>
             <Switch>
-                <Route exact path="/" component={App} />
-                <Route path="/peta" component={Peta} />
+                <Route exact path="/" component={Peta} />
+                {/* <Route path="/peta" component={Peta} /> */}
                 <Route path="/data-jalan" component={DataJalan} />
                 <Route path="/data-jembatan" component={DataJembatan} />
                 {/* <Route path="/data-jalan" component={DataJalan} />

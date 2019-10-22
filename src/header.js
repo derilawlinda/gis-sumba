@@ -6,8 +6,8 @@ function Header() {
         <div style={{height:'50px'}}>
             <div data-role="appbar" data-expand-point="md">
                 <ul className="app-bar-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/peta">Peta</a></li>
+                    <li><a href="/">Peta</a></li>
+                    {/* <li><a href="/peta">Peta</a></li> */}
                     <li><a href="/data-jalan">Data Jalan</a></li>
                     <li><a href="/data-jembatan">Data Jembatan</a></li>
                     {/* <li>
