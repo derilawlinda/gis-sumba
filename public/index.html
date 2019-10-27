@@ -29,14 +29,45 @@
     <title>GIS Jalan dan Jembatan Sumba Barat Daya</title>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
     
+  
+    
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
             
     </div>
+
+ 
     
    
   </body>
+
+  <script>
+
+    window.mapsPlaceholder = [];
+    var map;
+    var isRoadMap = false;
+    var isSatelliteMap = true;
+    setTimeout(function () {
+        (function () {
+           L.Map.addInitHook(function () {
+            mapsPlaceholder.push(this); // Use whatever global scope variable you like.
+          });
+
+        }());
+      }, 1000);
+
+       setTimeout(function () {
+          (function () {
+            
+            console.log("mapsPlaceholder", window.mapsPlaceholder);
+          }());
+        }, 2000);
+
+  </script>
+  
+
+    
   
 </html>
