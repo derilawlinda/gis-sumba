@@ -1,10 +1,38 @@
 import React from "react";
 import './App.scss'
+import logo from './images/logo_sumba.png'
 
 function Header() {
     return (
-        <div style={{height:'50px'}}>
-            <div data-role="appbar" data-expand-point="md">
+        <div style={{height:'125px'}}>
+
+
+            <div style={{
+                height:'70px'
+            }}>
+                <img src={logo} style={{
+                    height:'55px',
+                    margin:'5px'
+                }}>
+                </img>
+                <span style={{
+                    marginLeft : '5px',
+                    fontSize : '20px',
+                    position:'absolute',
+                    top:'10px'
+                }}>Dinas Pekerjaan Umum dan Penataan Ruang</span>
+                <span style={{
+                    marginLeft: '5px',
+                    fontSize: '20px',
+                    position: 'absolute',
+                    top: '35px'
+                }}>Kabupaten Sumba Barat Daya</span>
+
+            </div>
+
+            <div data-role="appbar" data-expand-point="md" style={{
+                marginTop:'70px'
+            }}>
                 <ul className="app-bar-menu">
                     <li><a href="/">Peta</a></li>
                     {/* <li><a href="/peta">Peta</a></li> */}

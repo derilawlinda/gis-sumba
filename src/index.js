@@ -12,8 +12,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(<Router>
     <div>
         <Header />
-        <div style={{ width: "100%", height: "500px" }}>
-            <div style={{ width: "100%", height: "10px" }}></div>
+        <div style={{ width: "100%", height: "500px", overflow:'auto' }}>
             <Switch>
                 <Route exact path="/" component={Peta} />
                 {/* <Route path="/peta" component={Peta} /> */}
