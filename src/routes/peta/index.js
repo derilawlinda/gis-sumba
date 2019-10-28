@@ -28,8 +28,6 @@ class Peta extends Component {
         window.baseURL = JSON.parse('{\"provider\":null,\"mapbox\":{\"search_bar_api_key\":\"\"},\"tomtom\":{\"search_bar_api_key\":\"\"}}');
         
         let scripts = [
-            { src: "http://demo.zenit.id/assets/1.0.0-assets.109/javascripts/common.js" },
-            { src: "http://demo.zenit.id/assets/1.0.0-assets.109/javascripts/common_vendor.js" },
             { src: "http://demo.zenit.id/assets/1.0.0-assets.109/javascripts/builder_embed.js" }
         ]
 
@@ -57,27 +55,35 @@ class Peta extends Component {
     }
 
     onRoadButtonClick() {
-
-        if (!this.state.isRoadMap) {
-            window.mapsPlaceholder[0].eachLayer(function (layer) {
-                if (layer._leaflet_id == 19) {
-                    layer.setUrl("http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}");
-                }
-            });
+        var map = window.mapsPlaceholder[0];
+        if (map){
+            if (!this.state.isRoadMap) {
+                map.eachLayer(function (layer) {
+                    if (layer._leaflet_id == 19) {
+                        layer.setUrl("http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}");
+                    }
+                });
+                    
+            }
+            this.setState({ isRoadMap: true, isSatelliteMap: false });
         }
-        this.setState({ isRoadMap: true, isSatelliteMap : false });
+       
     }
 
     onSatelliteButtonClick() {
 
-        if (!this.state.isSatelliteMap) {
-            window.mapsPlaceholder[0].eachLayer(function (layer) {
-                if (layer._leaflet_id == 19) {
-                    layer.setUrl("http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}");
-                }
-            });
+        var map = window.mapsPlaceholder[0];
+        if (map) {
+            if (!this.state.isSatelliteMap) {
+                map.eachLayer(function (layer) {
+                    if (layer._leaflet_id == 19) {
+                        layer.setUrl("http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}");
+                    }
+                });
+
+            }
+            this.setState({ isRoadMap: false, isSatelliteMap: true });
         }
-        this.setState({ isRoadMap: false, isSatelliteMap: true });
     }
     
     render() {

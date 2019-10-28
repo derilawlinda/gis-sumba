@@ -16,6 +16,7 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
+     
     
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -28,6 +29,16 @@
     -->
     <title>GIS Jalan dan Jembatan Sumba Barat Daya</title>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script defer>
+        window.mapsPlaceholder = [];      
+    </script>
+    <script defer src="%PUBLIC_URL%/js/common_vendor.js"></script>
+    <script defer src="%PUBLIC_URL%/js/common.js"></script>
+    <script defer>
+      
+      console.log("mapView", window.mapsPlaceholder);
+
+    </script>
     
   
     
@@ -43,29 +54,7 @@
    
   </body>
 
-  <script>
-
-    window.mapsPlaceholder = [];
-    var map;
-    var isRoadMap = false;
-    var isSatelliteMap = true;
-    setTimeout(function () {
-        (function () {
-           L.Map.addInitHook(function () {
-            mapsPlaceholder.push(this); // Use whatever global scope variable you like.
-          });
-
-        }());
-      }, 1000);
-
-       setTimeout(function () {
-          (function () {
-            
-            console.log("mapsPlaceholder", window.mapsPlaceholder);
-          }());
-        }, 2000);
-
-  </script>
+  
   
 
     
