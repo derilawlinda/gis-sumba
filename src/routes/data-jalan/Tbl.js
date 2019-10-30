@@ -1,18 +1,27 @@
 import '../../css/jquery.dataTables.css'
 import React, {Component} from 'react'
+import L from "leaflet"
+
+
+var Wkt = require("wicket")
+require("wicket/wicket-leaflet")
+
+
+const format = require('string-format')
 
 const $ = require('jquery')
 $.Datatable = require('datatables.net')
 
-export class Tbl extends Component{
 
+export class Tbl extends Component{
     componentDidMount(){
         this.$el = $(this.el);
         const tableName = 'ruas_jalan_sumba_bd';
         const cdbEndpoint = 'http://demo.zenit.id/user/dev/api/v2/sql?api_key=75c090475cfc5242c2902142cbbe843b31a05dc4&q=';
-        const cdbQuery = "SELECT nama_jalan,nama_ruas,kondisi,status,perkerasan,panjang_jl,kecamatan FROM " + tableName;
-        const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);      
-        this.$el.DataTable(
+        const cdbQuery = "SELECT ST_AsText(the_geom) as wkt,cartodb_id,bahu_kiri, cartodb_id, id, id_foto_ak, id_foto_aw, kecamatan, kondisi, lebar_jln, median_1, nama_jalan, nama_ruas, nomor_ruas, objectid, panjang, panjang_jl, perkerasan, rec_fungsi, shape_leng, slrn_ka, slrn_ki, status, sumber_dan, the_geom, the_geom_webmercator, trotoar_ka, trotoar_ki, url_akhir, url_awal FROM " + tableName;
+        const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);
+              
+        var table = this.$el.DataTable(
         {
                 ajax: {
                     url: queryURIencoded,
@@ -20,20 +29,27 @@ export class Tbl extends Component{
                     dataSrc: 'rows'
                 },
                 order: [[0, "desc"]],
+                
                 columns:  [
+                    {
+                        className: 'details-control',
+                        orderable: false,
+                        data: null,
+                        defaultContent: ''                     
+                    },
                     {
                         title: 'Nama Jalan',
                         data: 'nama_jalan',
                         searchable: true,
                         orderable: true,
-                        width: '250px'
+                        width: '200px'
                     },
                     {
                         title: 'Ruas',
                         data: 'nama_ruas',
                         searchable: true,
                         orderable: true,
-                        width: '90px'
+                        width: '150px'
                     },
                     {
                         title: 'Kecamatan',
@@ -66,16 +82,119 @@ export class Tbl extends Component{
                     }
                 ]
 
-        })
+        });
+        function rowOnClcik(d) {
+            // `d` is the original data object for the row
+            return +
+            '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;>' +
+                '<tr>' +
+                '<td colspan="2"><img height="250px" src=' + d.url_awal + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
+                '<td colspan="2"><img height="250px" src=' + d.url_akhir + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
+                    '<td rowspan="10" style="vertical-align:middle;text-align:center;"><div id="map'+ d.cartodb_id +'" style="height:500px;width:500px;" ></div></td>' +
+                '</tr>' +
+                '<tr style="background-color: #f2f2f2">' +
+                    '<td>Nomor Ruas</td>' + '<td>'+d.nomor_ruas+'</td>' +
+                    '<td>Nama Ruas </td>' + '<td>' + d.nama_ruas + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                    '<td>Jalan</td>' + '<td>' + d.nama_jalan + '</td>' +
+                    '<td>Status</td>' + '<td>' + d.status + '</td>' +
+                '</tr>' +
+                '<tr style="background-color: #f2f2f2">' +
+                    '<td>Perkerasan</td>' + '<td>' + d.perkerasan + '</td>' +
+                    '<td>Rec. Fungsi </td>' + '<td>' + d.rec_fungsi + '</td>' +
+                '</tr>' +
+                '<tr >' +
+                    '<td>Panjang </td>' + '<td>' + d.panjang_jl + ' km</td>' +
+                    '<td>Lebar</td>' + '<td>' + d.lebar_jln + ' m</td>' +                    
+                '</tr>' +
+                '<tr style="background-color: #f2f2f2">' +
+                    '<td>Kondisi</td>' + '<td>' + d.kondisi + '</td>' +
+                '</tr>' +
+                '<tr >' +
+                    '<td>Bahu Kiri </td>' + '<td>' + d.bahu_kiri + ' m </td>' +
+                    '<td>Bahu Kanan</td>' + '<td>' + d.bahu_kanan + ' m </td>' +
+                '</tr>' +
+                '<tr style="background-color: #f2f2f2">' +
+                    '<td>Trotoar Kiri </td>' + '<td>' + d.trotoar_ki + ' m </td>' +
+                    '<td>Trotoar Kanan</td>' + '<td>' + d.trotoar_ka + ' m </td>' +
+                '</tr>' +
+                '<tr >' +
+                    '<td>Saluran Kiri </td>' + '<td>' + d.slrn_ki + ' m </td>' +
+                    '<td>Saluran Kanan</td>' + '<td>' + d.slrn_ka + ' m </td>' +
+                '</tr>' +
+            '</table>';
+            
+        }
+        
+        $('#tabelJalan tbody').on('click', 'td.details-control', function () {
+            var tr = $(this).closest('tr');
+            var row = table.row(tr);
+           
+
+            if (row.child.isShown()) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+                
+            }
+            else {
+                // Open this row
+                row.child(rowOnClcik(row.data())).show();
+                tr.addClass('shown'); 
+                const map = L.map('map' + row.data().cartodb_id).setZoom(17);
+                var wkt = new Wkt.Wkt();
+                var stringWkt = format('{}', row.data().wkt);
+
+                try { // Catch any malformed WKT strings
+                    wkt.read(stringWkt);
+                } catch (e1) {
+                    try {
+                        wkt.read(stringWkt.replace('\n', '').replace('\r', '').replace('\t', ''));
+                    } catch (e2) {
+                        if (e2.name === 'WKTError') {
+                            alert('Wicket could not understand the WKT string you entered. Check that you have parentheses balanced, and try removing tabs and newline characters.');
+                            return;
+                        }
+                    }
+                }
+                var features = [];
+                var i;
+                let obj = wkt.toObject();
+                if (Wkt.isArray(obj)) { // Distinguish multigeometries (Arrays) from objects
+                    for (i in obj) {
+                        if (obj.hasOwnProperty(i) && !wkt.isArray(obj[i])) {
+                            obj[i].addTo(this.map);
+                            features.push(obj[i]);
+                        }
+                    }
+                } else {
+                    obj.addTo(map); // Add it to the map
+                    features.push(obj);
+                }
+                if (obj.getBounds !== undefined && typeof obj.getBounds === 'function') {
+                    // For objects that have defined bounds or a way to get them
+                    map.fitBounds(obj.getBounds());
+                } else {
+                    if (obj.getLatLng !== undefined && typeof obj.getLatLng === 'function') {
+                        map.panTo(obj.getLatLng());
+                    }
+                }            
+
+
+                L.tileLayer('http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}').addTo(map)
+            }
+        });
     }
 
+    
     componentWillUnmount(){
         this.$el.DataTable.destroy(true);
     }
 
     render() {
         return <div>
-            <table className="display" width="100%" ref={el => this.el = el}>
+            <table id="tabelJalan" className="display" width="100%" ref={el => this.el = el}>
 
             </table>
 
