@@ -33,7 +33,8 @@ export class Tbl extends Component{
                         className: 'details-control',
                         orderable: false,
                         data: null,
-                        defaultContent: ''
+                        defaultContent: '',
+                        width: '10px'
                     },
                     {
                         title: 'Nomor',
