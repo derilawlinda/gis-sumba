@@ -28,14 +28,15 @@ function Header() {
                     marginLeft : '5px',
                     fontSize : '16px',
                     position:'absolute',
-                    top:'0px',
+                    top:'5px',
                     color : 'white'
+                    
                 }}>SISTEM INFORMASI GEOGRAFIS</span>
                 <span style={{
                     marginLeft: '5px',
                     fontSize: '16px',
                     position: 'absolute',
-                    top: '18px',
+                    top: '21px',
                     color: 'white'
                 }}>DATABASE JALAN DAN JEMBATAN</span>
                 <span style={{
