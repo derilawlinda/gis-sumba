@@ -2,14 +2,23 @@ import React from "react";
 import './App.scss'
 import logo from './images/logo_sumba.png'
 
+
 function Header() {
     return (
-        <div style={{height:'125px'}}>
+
+    
+        <div style={{height:'120px', 
+            background: '#4473c4',
+            width: '100%'
+        
+        }}>
 
 
             <div style={{
                 height:'70px'
+                
             }}>
+                
                 <img src={logo} style={{
                     height:'55px',
                     margin:'5px'
@@ -17,16 +26,26 @@ function Header() {
                 </img>
                 <span style={{
                     marginLeft : '5px',
-                    fontSize : '20px',
+                    fontSize : '16px',
                     position:'absolute',
-                    top:'10px'
-                }}>Dinas Pekerjaan Umum dan Penataan Ruang</span>
+                    top:'0px',
+                    color : 'white'
+                }}>SISTEM INFORMASI GEOGRAFIS</span>
+                <span style={{
+                    marginLeft: '5px',
+                    fontSize: '16px',
+                    position: 'absolute',
+                    top: '18px',
+                    color: 'white'
+                }}>DATABASE JALAN DAN JEMBATAN</span>
                 <span style={{
                     marginLeft: '5px',
                     fontSize: '20px',
                     position: 'absolute',
-                    top: '35px'
-                }}>Kabupaten Sumba Barat Daya</span>
+                    top: '35px',
+                    color: 'white'
+                    
+                }}>KABUPATEN SUMBA BARAT DAYA</span>
 
             </div>
 
@@ -35,7 +54,7 @@ function Header() {
             }}>
                 <ul className="app-bar-menu">
                     <li><a href="/">Peta</a></li>
-                    {/* <li><a href="/peta">Peta</a></li> */}
+                    <li><a href="/ringkasan">Ringkasan</a></li>
                     <li><a href="/data-jalan">Data Jalan</a></li>
                     <li><a href="/data-jembatan">Data Jembatan</a></li>
                     {/* <li>

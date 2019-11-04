@@ -1,28 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from "./header";
+import Footer from "./footer";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Peta from './routes/peta';
 import DataJalan from './routes/data-jalan';
 import DataJembatan from './routes/data-jembatan';
+import Ringkasan from './routes/ringkasan';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Container, Row, Col } from 'react-bootstrap'
+
 
 ReactDOM.render(<Router>
     <div>
-        <Header />
-        <div style={{ width: "100%", height: "500px", overflow:'auto' }}>
-            <Switch>
-                <Route exact path="/" component={Peta} />
-                {/* <Route path="/peta" component={Peta} /> */}
-                <Route path="/data-jalan" component={DataJalan} />
-                <Route path="/data-jembatan" component={DataJembatan} />
-                {/* <Route path="/data-jalan" component={DataJalan} />
-            <Route path="/data-jembatan" component={DataJembatan} />
-            <Route component={Notfound} /> */}
-            </Switch>
-        </div>
+        <Container fluid="true">
+            <Row>
+                <Header />
+            </Row>
+            <Row>
+                <div style={{ width: "100%", height: "500px", overflow: 'auto' }}>
+                    <Switch>
+                        <Route exact path="/" component={Peta} />
+                        <Route path="/ringkasan" component={Ringkasan} />
+                        <Route path="/data-jalan" component={DataJalan} />
+                        <Route path="/data-jembatan" component={DataJembatan} />
+                    </Switch>
+                </div>
+            </Row>
+            <Row>
+                <Footer />
+            </Row>
+        </Container>
+       
         
     </div>
 </Router>, document.getElementById('root'));
