@@ -18,7 +18,7 @@ export class Tbl extends Component{
         this.$el = $(this.el);
         const tableName = 'ruas_jalan_sumba_bd';
         const cdbEndpoint = 'http://demo.zenit.id/user/dev/api/v2/sql?api_key=75c090475cfc5242c2902142cbbe843b31a05dc4&q=';
-        const cdbQuery = "SELECT ST_AsText(the_geom) as wkt,cartodb_id,bahu_kiri,bahu_kanan,cartodb_id, id, kecamatan, kondisi, lebar_jln, median_1, nama_jalan, nama_ruas, nomor_ruas, objectid, panjang, panjang_jl, perkerasan, rec_fungsi, shape_leng, slrn_ka, slrn_ki, status, sumber_dan, trotoar_ka, trotoar_ki, url_akhir, url_awal FROM " + tableName;
+        const cdbQuery = "SELECT ST_AsText(the_geom) as wkt,cartodb_id,bahu_kiri,bahu_kanan,cartodb_id, id,kecamatan,kondisi,lebar_jln,median_1,nama_jalan,nama_ruas,nomor_ruas,objectid,panjang,panjang_jl,perkerasan,rec_fungsi,shape_leng,slrn_ka,slrn_ki,status,sumber_dan,trotoar_ka,trotoar_ki,url_akhir,url_awal FROM " + tableName;
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);
               
         var table = this.$el.DataTable(
