@@ -18,7 +18,7 @@ function Footer() {
                     <Col sm>
                         <div style={{padding:'10px'}}>
                             <span style={{ color: 'white' }}><strong>TENTANG KAMI</strong></span>
-                            <p style={{ color: 'white' }}>
+                            <p style={{ color: 'white', marginTop:'5px' }}>
                                 Sistem Informasi Geografis Jalan Dan
                             <br></br>
                                 Jembatan ini berisi data ruas jalan dan jembatan
@@ -31,7 +31,7 @@ function Footer() {
                     <Col sm>
                         <div style={{ margin: '5px' }}>
                             <span style={{ color: 'white' }}><strong>KONTAK</strong></span>
-                            <p style={{ color: 'white' }}>
+                            <p style={{ color: 'white', marginTop: '5px' }}>
                                 PEMERINTAH KABUPATEN SUMBA BARAT DAYA
                             <br></br>
                                 DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
