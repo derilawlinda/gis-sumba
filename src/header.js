@@ -37,14 +37,16 @@ function Header() {
                     fontSize: '16px',
                     position: 'absolute',
                     top: '21px',
-                    color: 'white'
+                    color: 'white',
+                    marginTop : '2px'
                 }}>DATABASE JALAN DAN JEMBATAN</span>
                 <span style={{
                     marginLeft: '5px',
                     fontSize: '20px',
                     position: 'absolute',
                     top: '35px',
-                    color: 'white'
+                    color: 'white',
+                    marginTop: '5px'
                     
                 }}>KABUPATEN SUMBA BARAT DAYA</span>
 
