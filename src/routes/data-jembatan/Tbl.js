@@ -17,7 +17,7 @@ export class Tbl extends Component{
     componentDidMount(){
         this.$el = $(this.el);
         const tableName = 'jembatan_1';
-        const cdbEndpoint = 'http://demo.zenit.id/user/dev/api/v2/sql?api_key=75c090475cfc5242c2902142cbbe843b31a05dc4&q=';
+        const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
         const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,url_awal,url_akhir FROM " + tableName;
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);      
         var table = this.$el.DataTable(

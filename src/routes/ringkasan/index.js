@@ -18,7 +18,7 @@ class Ringkasan extends PureComponent {
     
    
     componentWillMount() {
-        const cdbEndpoint = 'http://demo.zenit.id/user/dev/api/v2/sql?api_key=75c090475cfc5242c2902142cbbe843b31a05dc4&q=';
+        const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
         const cdbQuery = `select status,
             sum((case when Kondisi = 'Baik' then panjang_jl else 0 end)) as "Baik",
             sum((case when Kondisi = 'Rusak Ringan' then panjang_jl else 0 end)) as "Rusak Ringan",
