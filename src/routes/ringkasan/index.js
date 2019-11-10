@@ -12,12 +12,14 @@ class Ringkasan extends PureComponent {
         this.state = {
             dataChart: [],
             dataPerkerasan : []
+           
         };
     }
 
     
    
     componentWillMount() {
+        
         const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
         const cdbQuery = `select status,
             sum((case when Kondisi = 'Baik' then panjang_jl else 0 end)) as "Baik",
@@ -48,6 +50,13 @@ class Ringkasan extends PureComponent {
 
 
     render() {
+        let totalBaik = 0;
+        let totalRusakRingan = 0;
+        let totalRusakBerat = 0;
+        let totalSedangDikerjakan = 0;
+        let totalHotmix = 0;
+        let totalLapen = 0;
+        let totalSirtu = 0;
         return (
             <Container fluid="true">
                 <Row>
@@ -96,6 +105,10 @@ class Ringkasan extends PureComponent {
                             </thead>
                             <tbody>
                                 {this.state.dataChart.map((listValue, index) => {
+                                    totalBaik += listValue["Baik"];
+                                    totalRusakBerat += listValue["Rusak Berat"];
+                                    totalRusakRingan += listValue["Rusak Ringan"];
+                                    totalSedangDikerjakan += listValue["Sedang Dikerjakan"];
                                     return (
                                         <tr key={index}>
                                             <td>{listValue.status}</td>
@@ -106,6 +119,13 @@ class Ringkasan extends PureComponent {
                                         </tr>
                                     );
                                 })}
+                                <tr>
+                                    <td><strong>Total</strong></td>
+                                    <td>{totalBaik}</td>
+                                    <td>{totalRusakBerat}</td>
+                                    <td>{totalRusakRingan}</td>
+                                    <td>{totalSedangDikerjakan}</td>
+                                </tr>
                             </tbody>
                         </table>
                         </Col>
@@ -154,6 +174,9 @@ class Ringkasan extends PureComponent {
                             </thead>
                             <tbody>
                                 {this.state.dataPerkerasan.map((listValue, index) => {
+                                    totalHotmix += listValue.hotmix;
+                                    totalLapen += listValue.lapen;
+                                    totalSirtu += listValue.sirtu;
                                     return (
                                         <tr key={index}>
                                             <td>{listValue.status}</td>
@@ -163,6 +186,12 @@ class Ringkasan extends PureComponent {
                                         </tr>
                                     );
                                 })}
+                                <tr>
+                                    <td><strong>Total</strong></td>
+                                    <td>{totalHotmix}</td>
+                                    <td>{totalLapen}</td>
+                                    <td>{totalSirtu}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </Col>
