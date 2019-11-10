@@ -55,7 +55,6 @@ class Peta extends Component {
 
     onRoadButtonClick() {
         var map = window.mapsPlaceholder[0];
-        console.log(map);
         if (map){
             if (!this.state.isRoadMap) {
                 map.eachLayer(function (layer) {
@@ -74,7 +73,6 @@ class Peta extends Component {
     onSatelliteButtonClick() {
 
         var map = window.mapsPlaceholder[0];
-        console.log(map);
         if (map) {
             if (!this.state.isSatelliteMap) {
                 map.eachLayer(function (layer) {
