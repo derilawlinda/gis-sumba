@@ -90,7 +90,7 @@ export class Tbl extends Component{
                 '<tr>' +
                 '<td colspan="2"><img height="250px" src=' + d.url_awal + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
                 '<td colspan="2"><img height="250px" src=' + d.url_akhir + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
-                    '<td rowspan="10" style="vertical-align:middle;text-align:center;"><div id="map'+ d.cartodb_id +'" style="height:500px;width:500px;" ></div></td>' +
+                    '<td rowspan="10" style="vertical-align:middle;text-align:center;width:80%;"><div id="map'+ d.cartodb_id +'" style="height:500px;" ></div></td>' +
                 '</tr>' +
                 '<tr style="background-color: #f2f2f2">' +
                     '<td>Nomor Ruas</td>' + '<td>'+d.nomor_ruas+'</td>' +
