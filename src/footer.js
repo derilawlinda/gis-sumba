@@ -29,7 +29,7 @@ function Footer() {
                         
                     </Col>
                     <Col sm>
-                        <div style={{ margin: '5px' }}>
+                        <div style={{ padding:'10px' }}>
                             <span style={{ color: 'white' }}><strong>KONTAK</strong></span>
                             <p style={{ color: 'white', marginTop: '5px' }}>
                                 PEMERINTAH KABUPATEN SUMBA BARAT DAYA
