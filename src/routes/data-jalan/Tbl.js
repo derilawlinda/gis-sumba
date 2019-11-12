@@ -85,11 +85,15 @@ export class Tbl extends Component{
         });
         function rowOnClcik(d) {
             // `d` is the original data object for the row
-            return +
-            '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;>' +
+            return '<div style="height:350px;overflow-y:scroll">' +
+            '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
                 '<tr>' +
-                '<td colspan="2"><img height="250px" src=' + d.url_awal + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
-                '<td colspan="2"><img height="250px" src=' + d.url_akhir + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
+                '<td colspan="2">' + 
+                    '<img height="250px" src=' + d.url_awal + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
+                '</td>' +
+                '<td colspan="2">' +
+                    '<img height="250px" src=' + d.url_akhir + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
+                '</td>' +
                     '<td rowspan="10" style="vertical-align:middle;text-align:center;width:80%;"><div id="map'+ d.cartodb_id +'" style="height:500px;" ></div></td>' +
                 '</tr>' +
                 '<tr style="background-color: #f2f2f2">' +
@@ -123,7 +127,8 @@ export class Tbl extends Component{
                     '<td>Saluran Kiri </td>' + '<td>' + d.slrn_ki + ' m </td>' +
                     '<td>Saluran Kanan</td>' + '<td>' + d.slrn_ka + ' m </td>' +
                 '</tr>' +
-            '</table>';
+            '</table>' +
+            '</div>';
             
         }
         

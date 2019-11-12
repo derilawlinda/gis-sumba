@@ -8,7 +8,7 @@ function Footer() {
 
 
         <div style={{
-            height: '100px',
+            height: '120px',
             background: '#4473c4',
             width: '100%'
 
