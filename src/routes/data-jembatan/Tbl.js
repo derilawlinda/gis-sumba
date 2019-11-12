@@ -74,9 +74,9 @@ export class Tbl extends Component{
 
         function rowOnClcik(d) {
             // `d` is the original data object for the row
-            return +
-               
-                '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;>' +
+            return '<div style="height:350px;overflow-y:scroll">' +
+            
+                '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
                 '<tr>' +
                 '<td colspan="2"><img class="backup_picture" height="250px" src=' + d.url_awal + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
                 '<td colspan="2"><img class="backup_picture" height="250px" src=' + d.url_akhir + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
@@ -97,7 +97,8 @@ export class Tbl extends Component{
                 '<td>Trotoar Kanan </td>' + '<td>' + d.trotoar_ka + ' m</td>' +
                 '<td>Trotoar Kiri</td>' + '<td>' + d.trotoar_ki + ' m</td>' +
                 '</tr>' +
-                '</table>';
+                '</table>' +
+                '</div>';
 
         }
 
