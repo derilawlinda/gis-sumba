@@ -18,7 +18,7 @@ export class Tbl extends Component{
         this.$el = $(this.el);
         const tableName = 'ruas_jalan_sumba_bd';
         const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
-        const cdbQuery = "SELECT ST_AsText(the_geom) as wkt,cartodb_id,bahu_kiri,bahu_kanan,cartodb_id, id,kecamatan,kondisi,lebar_jln,median_1,nama_jalan,nama_ruas,nomor_ruas,panjang,panjang_jl,perkerasan,rec_fungsi,slrn_ka,slrn_ki,status,sumber_dan,trotoar_ka,trotoar_ki,url_akhir,url_awal FROM " + tableName;
+        const cdbQuery = "SELECT ST_AsText(the_geom) as wkt,id_foto_aw,id_foto_ak,cartodb_id,bahu_kiri,bahu_kanan,cartodb_id, id,kecamatan,kondisi,lebar_jln,median_1,nama_jalan,nama_ruas,nomor_ruas,panjang,panjang_jl,perkerasan,rec_fungsi,slrn_ka,slrn_ki,status,sumber_dan,trotoar_ka,trotoar_ki FROM " + tableName;
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);
               
         var table = this.$el.DataTable(
@@ -89,10 +89,10 @@ export class Tbl extends Component{
             '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
                 '<tr>' +
                 '<td colspan="2">' + 
-                    '<img height="250px" src=' + d.url_awal + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
+                    '<img height="250px" src="foto_jalan/' + d.id_foto_aw + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
                 '</td>' +
                 '<td colspan="2">' +
-                    '<img height="250px" src=' + d.url_akhir + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
+                    '<img height="250px" src="foto_jalan/' + d.id_foto_ak + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
                 '</td>' +
                     '<td rowspan="10" style="vertical-align:middle;text-align:center;width:80%;"><div id="map'+ d.cartodb_id +'" style="height:500px;" ></div></td>' +
                 '</tr>' +

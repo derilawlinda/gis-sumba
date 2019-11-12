@@ -18,7 +18,7 @@ export class Tbl extends Component{
         this.$el = $(this.el);
         const tableName = 'jembatan_1';
         const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
-        const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,url_awal,url_akhir FROM " + tableName;
+        const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,id_foto_aw,id_foto_ak FROM " + tableName;
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);      
         var table = this.$el.DataTable(
         {
@@ -78,8 +78,8 @@ export class Tbl extends Component{
             
                 '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
                 '<tr>' +
-                '<td colspan="2"><img class="backup_picture" height="250px" src=' + d.url_awal + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
-                '<td colspan="2"><img class="backup_picture" height="250px" src=' + d.url_akhir + ' onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
+                '<td colspan="2"><img class="backup_picture" height="250px" src="foto_jalan/' + d.id_foto_aw + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
+                '<td colspan="2"><img class="backup_picture" height="250px" src="foto_jalan/' + d.id_foto_ak + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
                 '<td rowspan="5" style="vertical-align:middle;text-align:center;width:80%"><div id="map' + d.cartodb_id + '" style="height:400px;" ></div></td>' +
                 '</tr>' +
                 '<tr style="background-color: #f2f2f2">' +
