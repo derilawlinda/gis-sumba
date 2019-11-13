@@ -18,26 +18,35 @@ function Header() {
            
                 <img src={logo} style={{
                     height:'9vh',
-                    margin:'5px'
+                    margin:'1vh',
+                    float:'left'
                 }}>
                 </img>
                 <p style={{
-                    marginLeft: '11vh',
+                    marginLeft: '12vh',
                     position: 'absolute',
                     top: '5px',
-                    color: 'white'
+                    color: 'white',
+                    top : '-1vh',
+                    width : '100%'
 
                 }}>
                     <span style={{
-                    fontSize: '2.5vh'
+                    fontSize: '2.5vh',
+                    position: 'absolute',
+                    top: '2vh'
                     }}>SISTEM INFORMASI GEOGRAFIS</span>
                     <br></br>
                     <span style={{
-                        fontSize: '2.5vh'
+                    fontSize: '2.5vh',
+                    position: 'absolute',
+                    top: '5vh'
                     }}>DATABASE JALAN DAN JEMBATAN</span>
                     <br></br>
                 <span style={{
-                    fontSize: '3vh'
+                    fontSize: '3vh',
+                    position:'absolute',
+                    top:'8vh'
                 }}>KABUPATEN SUMBA BARAT DAYA</span>
 
                     
