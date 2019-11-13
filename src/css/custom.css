@@ -44,8 +44,8 @@
   @media (max-width: 759px) {
     .BasemapSwitcher-container {
         position: absolute;
-        top: 5vh;
-        margin-left: calc(100% - 21vw);
+        top: 14vh;
+        margin-left: calc(100% - 27vw);
         overflow: hidden;
         z-index: 20000;
       }
