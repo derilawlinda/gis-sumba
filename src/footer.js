@@ -8,15 +8,17 @@ function Footer() {
 
 
         <div style={{
-            height: '120px',
+            height: '16vh',
             background: '#4473c4',
-            width: '100%'
+            width: '100%',
+            fontSize : '2vh',
+
 
         }}>
             <Container fluid="true">
                 <Row>
                     <Col sm>
-                        <div style={{padding:'10px'}}>
+                        <div >
                             <span style={{ color: 'white' }}><strong>TENTANG KAMI</strong></span>
                             <p style={{ color: 'white', marginTop:'5px' }}>
                                 Sistem Informasi Geografis Jalan Dan
@@ -29,7 +31,7 @@ function Footer() {
                         
                     </Col>
                     <Col sm>
-                        <div style={{ padding:'10px' }}>
+                        <div>
                             <span style={{ color: 'white' }}><strong>KONTAK</strong></span>
                             <p style={{ color: 'white', marginTop: '5px' }}>
                                 PEMERINTAH KABUPATEN SUMBA BARAT DAYA

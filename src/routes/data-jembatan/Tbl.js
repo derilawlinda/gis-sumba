@@ -76,7 +76,7 @@ export class Tbl extends Component{
             // `d` is the original data object for the row
             return '<div style="height:350px;overflow-y:scroll">' +
             
-                '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+                '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%">' +
                 '<tr>' +
                 '<td colspan="2"><img class="backup_picture" height="250px" src="foto_jalan/' + d.id_foto_aw + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
                 '<td colspan="2"><img class="backup_picture" height="250px" src="foto_jalan/' + d.id_foto_ak + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +

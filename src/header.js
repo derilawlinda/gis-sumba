@@ -7,53 +7,41 @@ function Header() {
     return (
 
     
-        <div style={{height:'120px', 
+        <div style={{height:'19vh', 
             background: '#4473c4',
-            width: '100%'
+            width: '100%',
+            fontSize: '2vh'
         
         }}>
 
 
-            <div style={{
-                height:'70px'
-                
-            }}>
-                
+           
                 <img src={logo} style={{
-                    height:'55px',
+                    height:'9vh',
                     margin:'5px'
                 }}>
                 </img>
-                <span style={{
-                    marginLeft : '5px',
-                    fontSize : '16px',
-                    position:'absolute',
-                    top:'5px',
-                    color : 'white'
-                    
-                }}>SISTEM INFORMASI GEOGRAFIS</span>
-                <span style={{
-                    marginLeft: '5px',
-                    fontSize: '16px',
+                <p style={{
+                    marginLeft: '5vw',
                     position: 'absolute',
-                    top: '21px',
-                    color: 'white',
-                    marginTop : '2px'
-                }}>DATABASE JALAN DAN JEMBATAN</span>
-                <span style={{
-                    marginLeft: '5px',
-                    fontSize: '20px',
-                    position: 'absolute',
-                    top: '35px',
-                    color: 'white',
-                    marginTop: '5px'
-                    
-                }}>KABUPATEN SUMBA BARAT DAYA</span>
+                    top: '5px',
+                    color: 'white'
 
-            </div>
+                }}>
+                    <span >SISTEM INFORMASI GEOGRAFIS</span>
+                    <br></br>
+                    <span >DATABASE JALAN DAN JEMBATAN</span>
+                    <br></br>
+                    <span >KABUPATEN SUMBA BARAT DAYA</span>
+
+                    
+                </p>
+                
+
+           
 
             <div data-role="appbar" data-expand-point="md" style={{
-                marginTop:'70px'
+                marginTop:'11vh'
             }}>
                 <ul className="app-bar-menu">
                     <li><a href="/">Peta</a></li>

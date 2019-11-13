@@ -86,7 +86,7 @@ export class Tbl extends Component{
         function rowOnClcik(d) {
             // `d` is the original data object for the row
             return '<div style="height:350px;overflow-y:scroll">' +
-            '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+            '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%">' +
                 '<tr>' +
                 '<td colspan="2">' + 
                     '<img height="250px" src="foto_jalan/' + d.id_foto_aw + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
