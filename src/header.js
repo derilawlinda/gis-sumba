@@ -9,8 +9,8 @@ function Header() {
     
         <div style={{height:'19vh', 
             background: '#4473c4',
-            width: '100%',
-            fontSize: '2vh'
+            width: '100%'
+            
         
         }}>
 
@@ -22,17 +22,23 @@ function Header() {
                 }}>
                 </img>
                 <p style={{
-                    marginLeft: '5vw',
+                    marginLeft: '11vh',
                     position: 'absolute',
                     top: '5px',
                     color: 'white'
 
                 }}>
-                    <span >SISTEM INFORMASI GEOGRAFIS</span>
+                    <span style={{
+                    fontSize: '2.5vh'
+                    }}>SISTEM INFORMASI GEOGRAFIS</span>
                     <br></br>
-                    <span >DATABASE JALAN DAN JEMBATAN</span>
+                    <span style={{
+                        fontSize: '2.5vh'
+                    }}>DATABASE JALAN DAN JEMBATAN</span>
                     <br></br>
-                    <span >KABUPATEN SUMBA BARAT DAYA</span>
+                <span style={{
+                    fontSize: '3vh'
+                }}>KABUPATEN SUMBA BARAT DAYA</span>
 
                     
                 </p>
