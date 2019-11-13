@@ -9,7 +9,7 @@
      .BasemapSwitcher-container {
       position: absolute;
       top: 16px;
-      margin-left: calc(100% - 450px);
+      margin-left: calc(100% - 37vw);
       width: 150px;
       height: 50px;
       max-height: calc(100vh - 120px);
@@ -31,14 +31,21 @@
   }
 
 
-  @media (max-width: 1281px) {
+  @media (min-width: 760px) and (max-width: 1281px) {
     .BasemapSwitcher-container {
         position: absolute;
-        top: 16px;
-        margin-left: calc(100% - 455px);
-        width: 150px;
-        height: 50px;
-        max-height: calc(100vh - 120px);
+        top: 5vh;
+        margin-left: calc(100% - 53vw);
+        overflow: hidden;
+        z-index: 20000;
+      }
+  }
+
+  @media (max-width: 759px) {
+    .BasemapSwitcher-container {
+        position: absolute;
+        top: 5vh;
+        margin-left: calc(100% - 21vw);
         overflow: hidden;
         z-index: 20000;
       }
@@ -46,11 +53,8 @@
   @media (min-width: 1280px) {
     .BasemapSwitcher-container {
         position: absolute;
-        top: 16px;
-        margin-left: calc(100% - 525px);
-        width: 150px;
-        height: 50px;
-        max-height: calc(100vh - 120px);
+        margin-left: 64%;
+        top: 16px;       
         overflow: hidden;
         z-index: 20000;
       }
