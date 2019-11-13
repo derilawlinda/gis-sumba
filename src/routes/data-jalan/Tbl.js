@@ -199,7 +199,7 @@ export class Tbl extends Component{
 
     render() {
         return <div>
-            <table id="tabelJalan" className="display" width="100%" ref={el => this.el = el}>
+            <table id="tabelJalan" className="display compact nowrap" width="95%" ref={el => this.el = el}>
 
             </table>
 

@@ -192,7 +192,7 @@ export class Tbl extends Component{
 
     render() {
         return <div>
-            <table id="tabelJembatan" className="display" width="100%" ref={el => this.el = el}>
+            <table id="tabelJembatan" className="display compact nowrap" width="95%" ref={el => this.el = el}>
 
             </table>
 
