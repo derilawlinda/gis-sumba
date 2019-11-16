@@ -76,6 +76,7 @@ class Ringkasan extends PureComponent {
                 <Row>
                 <div style={{
                             marginTop: '3vh',
+                            marginBottom: '2vh',
                             textAlign: 'left',
                             marginLeft: '2vw',
                             width : '100%'
