@@ -95,7 +95,7 @@ class Peta extends Component {
             <div>
                
                 <div id="dashboard" style={{
-                    height : "68vh"
+                    height : "70vh"
                 }}>
                     <div className="BasemapSwitcher-container">
                         <div className="CDB-Overlay">

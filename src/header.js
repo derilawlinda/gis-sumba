@@ -7,7 +7,7 @@ function Header() {
     return (
 
     
-        <div style={{height:'19vh', 
+        <div style={{height:'16vh', 
             background: '#4473c4',
             width: '100%'
             
@@ -63,6 +63,13 @@ function Header() {
                     <li><a href="/ringkasan">Ringkasan</a></li>
                     <li><a href="/data-jalan">Data Jalan</a></li>
                     <li><a href="/data-jembatan">Data Jembatan</a></li>
+                    <li> <a href="" >Login</a>
+                        <ul class="d-menu" data-role="dropdown">
+                            <li><a href="https://layers.gis-sbd.com">Data Spasial</a></li>
+                            <li><a href="https://layers.gis-sbd.com">Data Gambar</a></li>
+                            
+                        </ul>
+                    </li>
                     {/* <li>
                     <a href="#" class="dropdown-toggle">Products</a>
                     <ul class="d-menu" data-role="dropdown">

@@ -11,7 +11,8 @@ class Ringkasan extends PureComponent {
         super(props);
         this.state = {
             dataChart: [],
-            dataPerkerasan : []
+            dataPerkerasan : [],
+            dataPanjangJalanByStatus : []
            
         };
     }
@@ -42,6 +43,17 @@ class Ringkasan extends PureComponent {
         fetch(queryURIencodedPerkerasan)
             .then(response => response.json())
             .then(data => this.setState({ dataPerkerasan: data.rows }));
+        const cdbDataPanjangJalanByStatus = `SELECT
+            status,
+            SUM (panjang_jl) AS total
+        FROM
+            ruas_jalan_sumba_bd
+        GROUP BY
+            status`
+        const queryURIencodedDataPanjangJalanByStatus = cdbEndpoint + encodeURI(cdbDataPanjangJalanByStatus);
+        fetch(queryURIencodedDataPanjangJalanByStatus)
+            .then(response => response.json())
+            .then(data => this.setState({ dataPanjangJalanByStatus: data.rows }));
      
     }
     componentDidMount() {
@@ -57,11 +69,52 @@ class Ringkasan extends PureComponent {
         let totalHotmix = 0;
         let totalLapen = 0;
         let totalSirtu = 0;
+        console.log(this.state.dataPanjangJalanByStatus);
         return (
+            
             <Container fluid="true">
                 <Row>
+                <div style={{
+                            marginTop: '3vh',
+                            textAlign: 'left',
+                            marginLeft: '2vw',
+                            width : '100%'
+                        }}>
+                            <h4 >Ringkasan Panjang Jalan</h4>
+                        </div>
+                </Row>
+                <Row>
+                    <Col xs lg="2" style={{
+                        textAlign:'right'
+                    }}>
+                    {this.state.dataPanjangJalanByStatus.map((listValue, index) => {
+                                  
+                                    return (
+                                        <span>
+                                            <strong>{listValue.status}</strong>
+                                            <br></br>
+                                            <br></br>
+                                        </span>                                        
+                                    );
+                                })}
+                       
+                    </Col>
+                    <Col xs lg="2">
+                    {this.state.dataPanjangJalanByStatus.map((listValue, index) => {
+                                  
+                                  return (
+                                      <span>
+                                          {listValue.total} km
+                                          <br></br>
+                                          <br></br>
+                                        </span>
+                                  );
+                              })}
+                    </Col>
+                </Row>
+                <Row>
                         <div style={{
-                            marginTop: '30px',
+                            marginTop: '10px',
                             textAlign: 'center',
                             width : '100%'
                         }}>
