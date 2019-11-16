@@ -80,7 +80,9 @@ class Ringkasan extends PureComponent {
                             marginLeft: '2vw',
                             width : '100%'
                         }}>
-                            <h4 >Ringkasan Panjang Jalan</h4>
+                            <h3 style={{
+                                fontSize:'2.5vh'
+                            }}>Ringkasan Panjang Jalan</h3>
                         </div>
                 </Row>
                 <Row>
@@ -118,7 +120,9 @@ class Ringkasan extends PureComponent {
                             textAlign: 'center',
                             width : '100%'
                         }}>
-                            <h3 >Kondisi per Status Jalan</h3>
+                            <h3 style={{
+                                fontSize:'2.5vh'
+                            }} >Kondisi per Status Jalan</h3>
                         </div>
                 </Row>
                 <Row>
@@ -189,7 +193,9 @@ class Ringkasan extends PureComponent {
                         textAlign: 'center',
                         width: '100%'
                     }}>
-                        <h3> Perkerasan per Status Jalan </h3>
+                        <h3 style={{
+                                fontSize:'2.5vh'
+                            }}> Perkerasan per Status Jalan </h3>
                     </div>
                 </Row>
                 <Row>
