@@ -38,7 +38,7 @@ function Footer() {
                             <br></br>
                                 DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
                             <br></br>
-                                Jl. Ir. Soekarno, Komplek Puspem Kaduka, Kec. Kota Tambolaka
+                                Jl. Ir. Soekarno, Komplek Puspem Kadula, Kec. Kota Tambolaka
                         </p>
                         </div>
                         
