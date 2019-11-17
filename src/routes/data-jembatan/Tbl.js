@@ -74,6 +74,10 @@ export class Tbl extends Component{
 
         function rowOnClcik(d) {
             // `d` is the original data object for the row
+            if(d.nama_jemba == "Ledegiring I"){
+                d.url_video = 'https://www.youtube.com/embed/hKFdVtZyzGQ?rel=0'
+            }
+            if(d.url_video == null) {
             return '<div style="height:350px;overflow-y:scroll">' +
             
                 '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%">' +
@@ -99,6 +103,39 @@ export class Tbl extends Component{
                 '</tr>' +
                 '</table>' +
                 '</div>';
+            }else{
+                return '<div style="height:350px;overflow-y:scroll">' +
+            
+                '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%">' +
+                '<tr>' +
+                '<td colspan="2"><img class="backup_picture" height="250px" src="foto_jalan/' + d.id_foto_aw + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
+                '<td colspan="2"><img class="backup_picture" height="250px" src="foto_jalan/' + d.id_foto_ak + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" /></td>' +
+                '<td rowspan="5" style="vertical-align:middle;text-align:center;width:80%"><div id="map' + d.cartodb_id + '" style="height:400px;" ></div></td>' +
+                '</tr>' +
+                '<tr>'+
+                '<td colspan="4">' + 
+            
+                '<iframe width="100%" height="315" src="'+d.url_video+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
+                '</td>' +
+            '</tr>'+
+                '<tr style="background-color: #f2f2f2">' +
+                '<td>Kode</td>' + '<td>' + d.name_code + '</td>' +
+                '<td>Nama </td>' + '<td>' + d.nama_jemba + '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>Tipe</td>' + '<td>' + d.tipe + '</td>' +
+                '</tr>' +
+                '<tr style="background-color: #f2f2f2">' +
+                '<td>Panjang </td>' + '<td>' + d.panjang + ' km</td>' +
+                '<td>Lebar</td>' + '<td>' + d.lebar + ' m</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>Trotoar Kanan </td>' + '<td>' + d.trotoar_ka + ' m</td>' +
+                '<td>Trotoar Kiri</td>' + '<td>' + d.trotoar_ki + ' m</td>' +
+                '</tr>' +
+                '</table>' +
+                '</div>';
+            }
 
         }
 

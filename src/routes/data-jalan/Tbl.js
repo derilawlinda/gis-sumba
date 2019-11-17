@@ -1,6 +1,7 @@
 import '../../css/jquery.dataTables.css'
 import React, {Component} from 'react'
 import L from "leaflet"
+import ReactPlayer from 'react-player'
 
 
 var Wkt = require("wicket")
@@ -85,6 +86,10 @@ export class Tbl extends Component{
         });
         function rowOnClcik(d) {
             // `d` is the original data object for the row
+            if(d.nama_jalan == "Jl Beringin"){
+                d.url_video = 'https://www.youtube.com/embed/AlJLeAc6fck?rel=0'
+            }
+            if(d.url_video == null) {
             return '<div style="height:350px;overflow-y:scroll">' +
             '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%">' +
                 '<tr>' +
@@ -96,6 +101,7 @@ export class Tbl extends Component{
                 '</td>' +
                     '<td rowspan="10" style="vertical-align:middle;text-align:center;width:80%;"><div id="map'+ d.cartodb_id +'" style="height:500px;" ></div></td>' +
                 '</tr>' +
+                
                 '<tr style="background-color: #f2f2f2">' +
                     '<td>Nomor Ruas</td>' + '<td>'+d.nomor_ruas+'</td>' +
                     '<td>Nama Ruas </td>' + '<td>' + d.nama_ruas + '</td>' +
@@ -129,6 +135,62 @@ export class Tbl extends Component{
                 '</tr>' +
             '</table>' +
             '</div>';
+            }else{
+                return '<div style="height:350px;overflow-y:scroll">' +
+            '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%">' +
+                '<tr>' +
+                '<td colspan="2">' + 
+                    '<img height="250px" src="foto_jalan/' + d.id_foto_aw + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
+                '</td>' +
+                '<td colspan="2">' +
+                    '<img height="250px" src="foto_jalan/' + d.id_foto_ak + '.jpg" onError="this.onerror=null;this.src=\'images/nopicture.jpg\';" />'+
+                '</td>' +
+                    '<td rowspan="10" style="vertical-align:middle;text-align:center;width:80%;"><div id="map'+ d.cartodb_id +'" style="height:500px;" ></div></td>' +
+                '</tr>' +
+                '<tr>'+
+                '<td colspan="4">' + 
+            
+                '<iframe width="100%" height="315" src="'+d.url_video+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
+                '</td>' +
+            '</tr>'+
+                
+                '<tr style="background-color: #f2f2f2">' +
+                    '<td>Nomor Ruas</td>' + '<td>'+d.nomor_ruas+'</td>' +
+                    '<td>Nama Ruas </td>' + '<td>' + d.nama_ruas + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                    '<td>Jalan</td>' + '<td>' + d.nama_jalan + '</td>' +
+                    '<td>Status</td>' + '<td>' + d.status + '</td>' +
+                '</tr>' +
+                '<tr style="background-color: #f2f2f2">' +
+                    '<td>Perkerasan</td>' + '<td>' + d.perkerasan + '</td>' +
+                    '<td>Rec. Fungsi </td>' + '<td>' + d.rec_fungsi + '</td>' +
+                '</tr>' +
+                '<tr >' +
+                    '<td>Panjang </td>' + '<td>' + d.panjang_jl + ' km</td>' +
+                    '<td>Lebar</td>' + '<td>' + d.lebar_jln + ' m</td>' +                    
+                '</tr>' +
+                '<tr style="background-color: #f2f2f2">' +
+                    '<td>Kondisi</td>' + '<td>' + d.kondisi + '</td>' +
+                '</tr>' +
+                '<tr >' +
+                    '<td>Bahu Kiri </td>' + '<td>' + d.bahu_kiri + ' m </td>' +
+                    '<td>Bahu Kanan</td>' + '<td>' + d.bahu_kanan + ' m </td>' +
+                '</tr>' +
+                '<tr style="background-color: #f2f2f2">' +
+                    '<td>Trotoar Kiri </td>' + '<td>' + d.trotoar_ki + ' m </td>' +
+                    '<td>Trotoar Kanan</td>' + '<td>' + d.trotoar_ka + ' m </td>' +
+                '</tr>' +
+                '<tr >' +
+                    '<td>Saluran Kiri </td>' + '<td>' + d.slrn_ki + ' m </td>' +
+                    '<td>Saluran Kanan</td>' + '<td>' + d.slrn_ka + ' m </td>' +
+                '</tr>' +
+            '</table>' +
+            '</div>';
+            }
+            
+            
+           
             
         }
         
