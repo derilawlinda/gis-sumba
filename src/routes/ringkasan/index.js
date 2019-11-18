@@ -229,7 +229,7 @@ class Ringkasan extends PureComponent {
                         <table class="simple-table" style={{ marginTop: '26px', width:'100%' }}>
                             <thead>
                                 <tr>
-                                    <th rowSpan="2" style={{ verticalAlign: 'middle', textAlign: 'center' }}>Status</th>
+                                    <th rowSpan="2" style={{ verticalAlign: 'middle', textAlign: 'center', width: '30%' }}>Status</th>
                                     <th colSpan="3" style={{ verticalAlign: 'middle', textAlign: 'center' }}>Perkerasan (km)</th>
                                 </tr>
                                 <tr>
