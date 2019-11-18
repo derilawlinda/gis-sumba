@@ -183,10 +183,10 @@ class Ringkasan extends PureComponent {
                                 })}
                                 <tr>
                                     <td><strong>Total</strong></td>
-                                    <td>{totalBaik.toFixed(3)}</td>
-                                    <td>{totalRusakBerat}</td>
-                                    <td>{totalRusakRingan}</td>
-                                    <td>{totalSedangDikerjakan}</td>
+                                    <td>{totalBaik.toFixed(2)}</td>
+                                    <td>{totalRusakBerat.toFixed(2)}</td>
+                                    <td>{totalRusakRingan.toFixed(2)}</td>
+                                    <td>{totalSedangDikerjakan.toFixed(2)}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -254,9 +254,9 @@ class Ringkasan extends PureComponent {
                                 })}
                                 <tr>
                                     <td><strong>Total</strong></td>
-                                    <td>{totalHotmix.toFixed(3)}</td>
-                                    <td>{totalLapen}</td>
-                                    <td>{totalSirtu}</td>
+                                    <td>{totalHotmix.toFixed(2)}</td>
+                                    <td>{totalLapen.toFixed(2)}</td>
+                                    <td>{totalSirtu.toFixed(2)}</td>
                                 </tr>
                             </tbody>
                         </table>
