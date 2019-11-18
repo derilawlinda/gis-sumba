@@ -20,7 +20,7 @@ ReactDOM.render(<Router>
                 <Header />
             </Row>
             <Row>
-                <div style={{ width: "100%", height: "70vh", overflow: 'auto', marginTop:"2vh" }}>
+                <div style={{ width: "100%", height: "67vh", overflow: 'auto', marginTop:"3vh" }}>
                     <Switch>
                         <Route exact path="/" component={Peta} />
                         <Route path="/ringkasan" component={Ringkasan} />
