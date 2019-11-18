@@ -69,7 +69,6 @@ class Ringkasan extends PureComponent {
         let totalHotmix = 0;
         let totalLapen = 0;
         let totalSirtu = 0;
-        console.log(this.state.dataPanjangJalanByStatus);
         return (
             
             <Container fluid="true">
@@ -109,7 +108,7 @@ class Ringkasan extends PureComponent {
                                   
                                   return (
                                       <span>
-                                          {listValue.total} km
+                                          {listValue.total.toFixed(2)} km
                                           <br></br>
                                           <br></br>
                                         </span>
