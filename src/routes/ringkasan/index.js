@@ -82,7 +82,9 @@ class Ringkasan extends PureComponent {
                             width : '100%'
                         }}>
                             <h3 style={{
-                                fontSize:'2.5vh'
+                                fontSize:'2.5vh',
+                                fontWeight: "bolder",
+                                color: "rgb(68, 115, 196)"
                             }}>Ringkasan Panjang Jalan</h3>
                         </div>
                 </Row>
@@ -122,7 +124,9 @@ class Ringkasan extends PureComponent {
                             width : '100%'
                         }}>
                             <h3 style={{
-                                fontSize:'2.5vh'
+                                fontSize:'2.5vh',
+                                fontWeight : "bolder",
+                                color: "rgb(68, 115, 196)"
                             }} >Kondisi per Status Jalan</h3>
                         </div>
                 </Row>
@@ -179,7 +183,7 @@ class Ringkasan extends PureComponent {
                                 })}
                                 <tr>
                                     <td><strong>Total</strong></td>
-                                    <td>{totalBaik}</td>
+                                    <td>{totalBaik.toFixed(3)}</td>
                                     <td>{totalRusakBerat}</td>
                                     <td>{totalRusakRingan}</td>
                                     <td>{totalSedangDikerjakan}</td>
@@ -195,7 +199,9 @@ class Ringkasan extends PureComponent {
                         width: '100%'
                     }}>
                         <h3 style={{
-                                fontSize:'2.5vh'
+                                fontSize:'2.5vh',
+                                fontWeight: "bolder",
+                                color: "rgb(68, 115, 196)"
                             }}> Perkerasan per Status Jalan </h3>
                     </div>
                 </Row>
@@ -248,7 +254,7 @@ class Ringkasan extends PureComponent {
                                 })}
                                 <tr>
                                     <td><strong>Total</strong></td>
-                                    <td>{totalHotmix}</td>
+                                    <td>{totalHotmix.toFixed(3)}</td>
                                     <td>{totalLapen}</td>
                                     <td>{totalSirtu}</td>
                                 </tr>
