@@ -191,7 +191,7 @@ export class Tbl extends Component{
 
     render() {
         return <div>
-            <table id="tabelStatus" className="display compact nowrap" width="100%" height="20vh" ref={el => this.el = el}>
+            <table id="tabelStatus" className="display" width="100%" height="20vh" ref={el => this.el = el}>
 
             </table>
 
