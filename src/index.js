@@ -6,6 +6,7 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Peta from './routes/peta';
 import DataJalan from './routes/data-jalan';
 import DataJembatan from './routes/data-jembatan';
+import DataRuas from './routes/data-ruas';
 import Ringkasan from './routes/ringkasan';
 import './index.css';
 import App from './App';
@@ -26,6 +27,7 @@ ReactDOM.render(<Router>
                         <Route path="/ringkasan" component={Ringkasan} />
                         <Route path="/data-jalan" component={DataJalan} />
                         <Route path="/data-jembatan" component={DataJembatan} />
+                        <Route path="/data-ruas" component={DataRuas} />
                     </Switch>
                 </div>
             </Row>

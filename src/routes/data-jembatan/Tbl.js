@@ -18,7 +18,7 @@ export class Tbl extends Component{
         this.$el = $(this.el);
         const tableName = 'jembatan_1';
         const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
-        const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,id_foto_aw,id_foto_ak FROM " + tableName;
+        const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,id_foto_aw,id_foto_ak,kecamatan FROM " + tableName;
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);      
         var table = this.$el.DataTable(
         {
@@ -92,9 +92,10 @@ export class Tbl extends Component{
                 '</tr>' +
                 '<tr>' +
                 '<td>Tipe</td>' + '<td>' + d.tipe + '</td>' +
+                '<td>Kecamatan</td>' + '<td>' + d.kecamatan + '</td>' +
                 '</tr>' +
                 '<tr style="background-color: #f2f2f2">' +
-                '<td>Panjang </td>' + '<td>' + d.panjang + ' km</td>' +
+                '<td>Panjang </td>' + '<td>' + d.panjang + ' m</td>' +
                 '<td>Lebar</td>' + '<td>' + d.lebar + ' m</td>' +
                 '</tr>' +
                 '<tr>' +

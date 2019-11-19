@@ -4,6 +4,9 @@ import {
 } from 'recharts';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../../css/simple_table.css'
+import '../../css/jquery.dataTables.css'
+import { Tbl } from './Tbl'
+
 
 class Ringkasan extends PureComponent {
 
@@ -25,8 +28,7 @@ class Ringkasan extends PureComponent {
         const cdbQuery = `select status,
             sum((case when Kondisi = 'Baik' then panjang_jl else 0 end)) as "Baik",
             sum((case when Kondisi = 'Rusak Ringan' then panjang_jl else 0 end)) as "Rusak Ringan",
-            sum((case when Kondisi = 'Rusak Berat' then panjang_jl else 0 end)) as "Rusak Berat",
-            sum((case when Kondisi = 'Sedang Dikerjakan' then panjang_jl else 0 end)) as "Sedang Dikerjakan"
+            sum((case when Kondisi = 'Rusak Berat' then panjang_jl else 0 end)) as "Rusak Berat"
             from ruas_jalan_sumba_bd
             group by status;`
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);
@@ -72,50 +74,7 @@ class Ringkasan extends PureComponent {
         return (
             
             <Container fluid="true">
-                <Row>
-                <div style={{
-                            marginTop: '3vh',
-                            marginBottom: '2vh',
-                            textAlign: 'left',
-                            marginLeft: '2vw',
-                            width : '100%'
-                        }}>
-                            <h3 style={{
-                                fontSize:'2.5vh',
-                                fontWeight: "bolder",
-                                color: "rgb(68, 115, 196)"
-                            }}>Ringkasan Panjang Jalan</h3>
-                        </div>
-                </Row>
-                <Row>
-                    <Col xs lg="2" style={{
-                        textAlign:'right'
-                    }}>
-                    {this.state.dataPanjangJalanByStatus.map((listValue, index) => {
-                                  
-                                    return (
-                                        <span>
-                                            <strong>{listValue.status}</strong>
-                                            <br></br>
-                                            <br></br>
-                                        </span>                                        
-                                    );
-                                })}
-                       
-                    </Col>
-                    <Col xs lg="2">
-                    {this.state.dataPanjangJalanByStatus.map((listValue, index) => {
-                                  
-                                  return (
-                                      <span>
-                                          {listValue.total.toFixed(2)} km
-                                          <br></br>
-                                          <br></br>
-                                        </span>
-                                  );
-                              })}
-                    </Col>
-                </Row>
+                
                 <Row>
                         <div style={{
                             marginTop: '10px',
@@ -132,7 +91,7 @@ class Ringkasan extends PureComponent {
                 <Row>
                         <Col sm>
                         <BarChart
-                            width={700}
+                            width={800}
                             height={300}
                             data={this.state.dataChart}
                             style={{
@@ -147,7 +106,6 @@ class Ringkasan extends PureComponent {
                             <Bar dataKey="Baik" stackId="a" fill="#21c40f" />
                             <Bar dataKey="Rusak Ringan" stackId="a" fill="#dfae0c" />
                             <Bar dataKey="Rusak Berat" stackId="a" fill="#cc1313" />
-                            <Bar dataKey="Sedang Dikerjakan" stackId="a" fill="#060eef" />
                         </BarChart>
                         </Col>
                         <Col sm>
@@ -159,9 +117,8 @@ class Ringkasan extends PureComponent {
                                 </tr>
                                 <tr>
                                     <th>Baik</th>
-                                    <th>Rusak Ringan</th>
                                     <th>Rusak Berat</th>
-                                    <th>Sedang Dikerjakan</th>
+                                    <th>Rusak Ringan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -169,14 +126,12 @@ class Ringkasan extends PureComponent {
                                     totalBaik += listValue["Baik"];
                                     totalRusakBerat += listValue["Rusak Berat"];
                                     totalRusakRingan += listValue["Rusak Ringan"];
-                                    totalSedangDikerjakan += listValue["Sedang Dikerjakan"];
                                     return (
                                         <tr key={index}>
                                             <td>{listValue.status}</td>
                                             <td>{listValue["Baik"]}</td>
                                             <td>{listValue["Rusak Berat"]}</td>
                                             <td>{listValue["Rusak Ringan"]}</td>
-                                            <td>{listValue["Sedang Dikerjakan"]}</td>
                                         </tr>
                                     );
                                 })}
@@ -185,7 +140,6 @@ class Ringkasan extends PureComponent {
                                     <td>{totalBaik.toFixed(2)}</td>
                                     <td>{totalRusakBerat.toFixed(2)}</td>
                                     <td>{totalRusakRingan.toFixed(2)}</td>
-                                    <td>{totalSedangDikerjakan.toFixed(2)}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -207,7 +161,7 @@ class Ringkasan extends PureComponent {
                 <Row>
                     <Col sm>
                         <BarChart
-                            width={700}
+                            width={800}
                             height={300}
                             data={this.state.dataPerkerasan}
                             style={{
@@ -260,6 +214,33 @@ class Ringkasan extends PureComponent {
                             </tbody>
                         </table>
                     </Col>
+                </Row>
+                <Row>
+                    <div style={{
+                        marginTop: '3vh',
+                        marginBottom: '2vh',
+                        textAlign: 'center',
+                        marginLeft: '2vw',
+                        width: '100%'
+                    }}>
+                        <h3 style={{
+                            fontSize: '2.5vh',
+                            fontWeight: "bolder",
+                            color: "rgb(68, 115, 196)"
+                        }}>Ringkasan Panjang Jalan</h3>
+                    </div>
+                </Row>
+                <Row>
+                    <div style={{ width: "100%", height: "50vh", paddingLeft: '20px', paddingRight: '20px' }}>
+                        <Tbl
+                            data={this.rowData}
+
+
+
+                        >
+
+                        </Tbl>
+                    </div>
                 </Row>
             </Container>
                

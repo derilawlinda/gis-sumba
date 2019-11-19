@@ -61,8 +61,15 @@ function Header() {
                 <ul className="app-bar-menu">
                     <li><a href="/">Peta</a></li>
                     <li><a href="/ringkasan">Ringkasan</a></li>
-                    <li><a href="/data-jalan">Data Jalan</a></li>
-                    <li><a href="/data-jembatan">Data Jembatan</a></li>
+                    <li> <a href="" >Data</a>
+                        <ul className="d-menu" data-role="dropdown">
+                            <li><a href="/data-ruas">Data Ruas</a></li>
+                            <li><a href="/data-jembatan">Data Jembatan</a></li>
+                            <li><a href="/data-jalan">Data Survey 2019</a></li>
+
+                        </ul>
+                    </li>                  
+                    
                     <li> <a href="" >Login</a>
                         <ul className="d-menu" data-role="dropdown">
                             <li><a href="https://layers.gis-sbd.com">Data Spasial</a></li>
