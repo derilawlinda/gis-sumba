@@ -41,7 +41,10 @@ export class Tbl extends Component{
                 },
                 searching : false,
                 paging:false,
-                scrollY : "90vh",
+                info : false,
+                scrollY : "25vh",
+                scrollCollapse : true,
+                scrollX : "95vw",
                 order: [[0, "desc"]],
                 columns:  [
                     {
