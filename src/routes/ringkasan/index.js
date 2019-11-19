@@ -74,6 +74,33 @@ class Ringkasan extends PureComponent {
         return (
             
             <Container fluid="true">
+                <Row>
+                    <div style={{
+                        marginTop: '3vh',
+                        marginBottom: '2vh',
+                        textAlign: 'center',
+                        marginLeft: '2vw',
+                        width: '100%'
+                    }}>
+                        <h3 style={{
+                            fontSize: '2.5vh',
+                            fontWeight: "bolder",
+                            color: "rgb(68, 115, 196)"
+                        }}>Ringkasan Panjang Jalan</h3>
+                    </div>
+                </Row>
+                <Row>
+                    <div style={{ width: "100%", height: "30vh", paddingLeft: '20px', paddingRight: '20px' }}>
+                        <Tbl
+                            data={this.rowData}
+
+
+
+                        >
+
+                        </Tbl>
+                    </div>
+                </Row>
                 
                 <Row>
                         <div style={{
@@ -109,7 +136,7 @@ class Ringkasan extends PureComponent {
                         </BarChart>
                         </Col>
                         <Col sm>
-                        <table class="simple-table" style={{ marginTop: '26px', width: '100%'}}>
+                        <table className="simple-table" style={{ marginTop: '26px', width: '100%'}}>
                             <thead>
                                 <tr>
                                     <th rowSpan="2" style={{ verticalAlign: 'middle', textAlign: 'center', width: '30%'}}>Status</th>
@@ -215,33 +242,7 @@ class Ringkasan extends PureComponent {
                         </table>
                     </Col>
                 </Row>
-                <Row>
-                    <div style={{
-                        marginTop: '3vh',
-                        marginBottom: '2vh',
-                        textAlign: 'center',
-                        marginLeft: '2vw',
-                        width: '100%'
-                    }}>
-                        <h3 style={{
-                            fontSize: '2.5vh',
-                            fontWeight: "bolder",
-                            color: "rgb(68, 115, 196)"
-                        }}>Ringkasan Panjang Jalan</h3>
-                    </div>
-                </Row>
-                <Row>
-                    <div style={{ width: "100%", height: "50vh", paddingLeft: '20px', paddingRight: '20px' }}>
-                        <Tbl
-                            data={this.rowData}
-
-
-
-                        >
-
-                        </Tbl>
-                    </div>
-                </Row>
+                
             </Container>
                
                

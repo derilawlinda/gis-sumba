@@ -17,14 +17,19 @@ export class Tbl extends Component{
     componentDidMount(){
         this.$el = $(this.el);
         const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
-        const cdbDataPanjangJalanByStatus = `SELECT
-            row_number() over () as id,
-            status,
-            SUM (panjang_jl) AS total
-        FROM
-            ruas_jalan_sumba_bd
-        GROUP BY
-            status`
+        const cdbDataPanjangJalanByStatus = `SELECT status, COUNT(*) as jumlah_ruas, SUM(total) as panjang_total
+        FROM (
+        SELECT
+                    status,
+                    nama_ruas,            
+                    ROUND(SUM(panjang_jl)::numeric ,2) AS total
+                FROM
+                    ruas_jalan_sumba_bd
+                GROUP BY
+                    status, nama_ruas
+        
+        )a
+        GROUP BY status`
         const queryURIencodedDataPanjangJalanByStatus = cdbEndpoint + encodeURI(cdbDataPanjangJalanByStatus);
            
         var table = this.$el.DataTable(
@@ -37,6 +42,8 @@ export class Tbl extends Component{
                 searching : false,
                 paging:false,
                 info : false,
+                scrollY : "25vh",
+                scrollCollapse : true,
                 order: [[0, "desc"]],
                 columns:  [
                     {
@@ -50,57 +57,57 @@ export class Tbl extends Component{
                         title: 'Status',
                         data: 'status',
                         searchable: true,
-                        orderable: true
+                        orderable: true,
+                        width: '250px'
                     },
                     {
                         title: 'Panjang (km)',
-                        data: 'total',
+                        data: 'panjang_total',
                         searchable: true,
                         orderable: true,
                         width: '250px'
-                    }                    
+                    },
+                    {
+                        title: 'Jumlah Ruas',
+                        data: 'jumlah_ruas',
+                        searchable: true,
+                        orderable: true,
+                        width: '250px'
+                    }                      
                 ]
 
         })
 
         function rowOnClcik(d) {
             // `d` is the original data object for the row
-            const ruas = [];
-            const cdbQuery = "SELECT DISTINCT nama_ruas FROM ruas_jalan_sumba_bd WHERE status = '"+ d.status +"'";
-            const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);
-            $.ajax({
-                type: "GET",
-                url: queryURIencoded,
-                dataType: 'json',
-                success: function (response) {
-                    
-                    console.log(response);
-
-                }
-            });   
+            
 
             
             return (
-                '<div style="height:250px;overflow-y:scroll">' +
-                '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%">' +
-                '<tr>' +
-                '<td>Ruas</td>' + '<td>' + d.nama_ruas + '</td>' +
-                '<td rowspan="4" style="vertical-align:middle;text-align:center;width:60%"><div id="map' + d.id + '" style="height:250px;padding:10px;" ></div></td>' +
-                '</tr>' +
-                '<tr style="background-color: #f2f2f2">' +
-                '<td>Baik</td>' + '<td>' + d.baik + '</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<td>Rusak Ringan</td>' + '<td>' + d.rusak_ringan + '</td>' +
-                '</tr>' +
-                '<tr style="background-color: #f2f2f2">' +
-                '<td>Rusak Berat </td>' + '<td>' + d.rusak_berat + ' km</td>' +
-                '</tr>' +
-                '</table>' +
+                '<div style="height:250px;overflow-y:scroll" >' +
+                    '<div class="row"> ' +
+                        '<div class="col-sm-6">' +
+                            '<div >'+
+                            '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;width:100%;" id="table' + d.id + '" >' +
+                            '<thead style="display: block;width: 50%;">' +
+                                '<tr>' +
+                                '<th style="width: 84%;"> Ruas </th>' +
+                                '<th> Panjang </th>' +
+                                '</tr>' +
+                            '</thead>' +
+                            '<tbody style="height:150px;overflow-y:auto;width: 51%;display: block;">' +
+                            '</tbody>' +
+                            '</table>' +
+                            '</div>'+
+                        '</div>' +
+                        '<div class="col-sm-5">' +
+                            '<div id="map' + d.id + '" style="height:250px;padding:10px;" ></div>' +
+                        '</div>' +
+                    '</div>'+
                 '</div>'
             ) 
             
-
+            
         }
 
         $(".backup_picture").on("error", function () {
@@ -135,6 +142,22 @@ export class Tbl extends Component{
                 const garisJalan = [];
                 const map = L.map('map' + row.data().id).setZoom(17);
 
+                const ruas = [];
+                const cdbQuery = "SELECT SUM(panjang_jl) as panjang,nama_ruas FROM ruas_jalan_sumba_bd WHERE status = '"+ row.data().status +"' GROUP BY nama_ruas";
+                const queryURIencodedStatus = cdbEndpoint + encodeURI(cdbQuery);
+                $.ajax({
+                    type: "GET",
+                    url: queryURIencodedStatus,
+                    dataType: 'json',
+                    success: function (response) {
+                        
+                        response.rows.map(function(feature){
+                            $('#table'+row.data().id + ' tbody').append('<tr><td style="width: 84%;">'+feature.nama_ruas+'</td><td style="width: 1%;">'+feature.panjang+'</td></tr>');
+                        })
+
+                    }
+                });   
+
                 $.ajax({
                     type: "GET",
                     url: queryURIencoded,
@@ -168,7 +191,7 @@ export class Tbl extends Component{
 
     render() {
         return <div>
-            <table id="tabelStatus" className="display compact nowrap" width="100%" ref={el => this.el = el}>
+            <table id="tabelStatus" className="display compact nowrap" width="100%" height="20vh" ref={el => this.el = el}>
 
             </table>
 
