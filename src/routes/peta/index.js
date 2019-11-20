@@ -718,16 +718,16 @@ class Peta extends Component {
             "map_provider": "leaflet",
             "overlays": [
               
-              {
-                "type": "search",
-                "order": 2,
-                "options": {
-                  "display": true,
-                  "x": 60,
-                  "y": 20
-                },
-                "template": ""
-              },
+              // {
+              //   "type": "search",
+              //   "order": 2,
+              //   "options": {
+              //     "display": false,
+              //     "x": 60,
+              //     "y": 20
+              //   },
+              //   "template": ""
+              // },
               {
                 "type": "zoom",
                 "order": 3,
