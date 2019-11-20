@@ -393,7 +393,58 @@ class Peta extends Component {
                     }
                   ],
                   "maxHeight": 180,
-                  "template": "<div class=\"CDB-infowindow CDB-infowindow--light\" style=\"width:600px\">\n  <div class=\"CDB-infowindow-close js-close\"></div>\n  <div class=\"CDB-infowindow-container\">\n    <div class=\"CDB-infowindow-bg\">\n      <div class=\"CDB-infowindow-inner js-inner\">\n        <table style=\"border-collapse: collapse ; width: 100%\">\n \n  <tbody><tr>\n   \n<td colspan=\"2\" style=\"vertical-align: middle ; text-align: center\"><img src=\"foto_jalan/{{id_foto_aw}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>\n<td colspan=\"2\" style=\"vertical-align: middle ; text-align: center\"><img src=\"foto_jalan/{{id_foto_ak}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>\n  </tr>\n  <tr style=\"background-color: #f2f2f2\">\n <td>Kode</td>\n<td> {{name_code}} </td>\n    <td>Nama</td>\n<td> {{nama_jemba}}  </td>\n  </tr>\n  <tr>\n    <td>Tipe</td>\n<td> {{tipe}}  </td>\n  </tr>\n  <tr style=\"background-color: #f2f2f2\">\n    <td>Panjang</td>\n<td> {{panjang}} m</td>\n    <td>Lebar</td>\n<td> {{lebar}} m</td>\n  </tr>\n  <tr>\n    <td>Trotoar Kanan</td>\n<td> {{trotoar_ka}} m </td>\n    <td>Trotoar Kiri</td>\n<td> {{trotoar_ki}} m </td>\n  </tr> \n\n  \n</tbody></table>\n      </div>\n    </div>\n    <div class=\"CDB-hook\">\n      <div class=\"CDB-hook-inner\"></div>\n    </div>\n  </div>\n</div>\n",
+                  "template": `<div class=\"CDB-infowindow\" style=\"width:600px\">
+                    <div class=\"CDB-infowindow-close js-close\"></div>\
+                    <div class=\"CDB-infowindow-container\">    
+                    <div class=\"CDB-infowindow-bg\">      
+                    <div class=\"CDB-infowindow-inner js-inner\">        
+                    <table style=\"border-collapse: collapse ; width: 100%\">   
+                    <tbody>
+                    <tr>    
+                        <td colspan=\"2\" style=\"vertical-align: middle ; text-align: center\"><img src=\"ternak/{{id}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>
+                    </tr>
+                    <tr style=\"background-color: #f2f2f2\"><td>Nomor Ruas</td><td> {{nomor_ruas}} </td> 
+                        <td>Nama Ruas</td><td> {{nama_ruas}}  </td>
+                    </tr>  <tr style=\"background-color: #f2f2f2\">     </tr>  
+                    <tr>    
+                        <td>Jalan</td><td> {{nama_jalan}}  </td>  
+                    </tr>  
+                    <tr style=\"background-color: #f2f2f2\">    
+                        <td>Status</td><td> {{status}} </td>    
+                        <td>Perkerasan</td><td> {{perkerasan}} </td>  
+                    </tr>  
+                    <tr>    
+                        <td>Rec. Fungsi</td><td> {{rec_fungsi}} </td>    
+                        <td>Kondisi</td><td> {{kondisi}} </td>  
+                    </tr>  
+                    <tr style=\"background-color: #f2f2f2\">    
+                        <td>Panjang</td><td> {{panjang_jl}} km</td>    
+                        <td>Lebar</td><td> {{lebar_jln}}  m</td>  
+                    </tr>  
+                    <tr>    
+                        <td>Bahu Kiri</td><td> {{bahu_kiri}} m</td>    
+                        <td>Bahu Kanan</td><td> {{bahu_kanan}} m</td>  </tr>  
+                    <tr style=\"background-color: #f2f2f2\">    
+                        <td>Trotoar Kiri</td><td> {{trotoar_ka}} m</td>    
+                        <td>Trotoar Kanan</td><td> {{trotoar_ki}}  m</td>  
+                    </tr>  
+                    <tr>    
+                        <td>Saluran Kiri</td><td> {{slrn_ki}} m </td>    
+                        <td>Saluran Kanan</td><td> {{slrn_ka}} m</td>  
+                    </tr>
+                    <tr style=\"background-color: #f2f2f2\">    
+                        <td>Koordinat Awal (UTM 50S)</td><td> {{east_awal}} , {{north_awal}} </td>    
+                        <td>Koordinat Akhir (UTM 50S)</td><td> {{east_akhir}} , {{north_akhr}} </td>  
+                    </tr>  
+                    </tbody>
+                    </table>      
+                    </div>    
+                    </div>    
+                        <div class=\"CDB-hook\">      
+                            <div class=\"CDB-hook-inner\"></div>
+                        </div>  
+                    </div>
+                    </div>`,
                   "alternative_names": {},
                   "width": 226,
                   "headerColor": {
@@ -418,7 +469,251 @@ class Peta extends Component {
                     "updated_at": null
                   }
                 ]
+              },
+              {
+                "id": "2750a4e3-516c-405a-bca8-8733d415755a",
+                "type": "CartoDB",
+                "visible": true,
+                "options": {
+                  "layer_name": "Kelompok Ternak",
+                  "attribution": "",
+                  "cartocss": "#layer {\n  marker-width: 7;\n  marker-fill: #EE4D5A;\n  marker-fill-opacity: 0.9;\n  marker-allow-overlap: true;\n  marker-line-width: 1;\n  marker-line-color: #FFFFFF;\n  marker-line-opacity: 1;\n}",
+                  "source": "a0"
+                },
+                "infowindow": {
+                  "template_name": "",
+                  "maxHeight": 180,
+                  "template": "<div class=\"CDB-infowindow CDB-infowindow--light js-infowindow\">\n  <div class=\"CDB-infowindow-close js-close\"></div>\n  <div class=\"CDB-infowindow-container\">\n    <div class=\"CDB-infowindow-bg\">\n      <div class=\"CDB-infowindow-inner js-inner\">\n        <ul class=\"CDB-infowindow-list js-content\">\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">id</h5>\n            <h4 class=\"CDB-infowindow-title\">{{id}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">kecamatan</h5>\n            <h4 class=\"CDB-infowindow-title\">{{kecamatan}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">desa</h5>\n            <h4 class=\"CDB-infowindow-title\">{{desa}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">kelompok</h5>\n            <h4 class=\"CDB-infowindow-title\">{{kelompok}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">jenis_usah</h5>\n            <h4 class=\"CDB-infowindow-title\">{{jenis_usah}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">ketua</h5>\n            <h4 class=\"CDB-infowindow-title\">{{ketua}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">foto</h5>\n            <h4 class=\"CDB-infowindow-title\">{{foto}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">foto_jpg</h5>\n            <h4 class=\"CDB-infowindow-title\">{{foto_jpg}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_1</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_1}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_2</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_2}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_3</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_3}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_5</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_5}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_7</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_7}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_8</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_8}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_9</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_9}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_11</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_11}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_13</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_13}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_14</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_14}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_15</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_15}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_16</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_16}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_4</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_4}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_6</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_6}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_10</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_10}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_12</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_12}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_17</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_17}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_18</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_18}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_19</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_19}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_20</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_20}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_21</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_21}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_22</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_22}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_23</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_23}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_24</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_24}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_25</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_25}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_26</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_26}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_27</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_27}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_28</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_28}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_29</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_29}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_30</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_30}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_31</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_31}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_32</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_32}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_33</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_33}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">anggota_34</h5>\n            <h4 class=\"CDB-infowindow-title\">{{anggota_34}}</h4>\n          </li>\n          <li class=\"CDB-infowindow-listItem\">\n              <h5 class=\"CDB-infowindow-subtitle\">sumber_dan</h5>\n            <h4 class=\"CDB-infowindow-title\">{{sumber_dan}}</h4>\n          </li>\n        </ul>\n      </div>\n    </div>\n    <div class=\"CDB-hook\">\n      <div class=\"CDB-hook-inner\"></div>\n    </div>\n  </div>\n</div>\n",
+                  "alternative_names": {},
+                  "fields": [
+                    {
+                      "name": "id",
+                      "title": true,
+                      "position": 0
+                    },
+                    {
+                      "name": "kecamatan",
+                      "title": true,
+                      "position": 1
+                    },
+                    {
+                      "name": "desa",
+                      "title": true,
+                      "position": 2
+                    },
+                    {
+                      "name": "kelompok",
+                      "title": true,
+                      "position": 3
+                    },
+                    {
+                      "name": "jenis_usah",
+                      "title": true,
+                      "position": 4
+                    },
+                    {
+                      "name": "ketua",
+                      "title": true,
+                      "position": 5
+                    },
+                    {
+                      "name": "foto",
+                      "title": true,
+                      "position": 6
+                    },
+                    {
+                      "name": "foto_jpg",
+                      "title": true,
+                      "position": 7
+                    },
+                    {
+                      "name": "anggota_1",
+                      "title": true,
+                      "position": 8
+                    },
+                    {
+                      "name": "anggota_2",
+                      "title": true,
+                      "position": 9
+                    },
+                    {
+                      "name": "anggota_3",
+                      "title": true,
+                      "position": 10
+                    },
+                    {
+                      "name": "anggota_5",
+                      "title": true,
+                      "position": 11
+                    },
+                    {
+                      "name": "anggota_7",
+                      "title": true,
+                      "position": 12
+                    },
+                    {
+                      "name": "anggota_8",
+                      "title": true,
+                      "position": 13
+                    },
+                    {
+                      "name": "anggota_9",
+                      "title": true,
+                      "position": 14
+                    },
+                    {
+                      "name": "anggota_11",
+                      "title": true,
+                      "position": 15
+                    },
+                    {
+                      "name": "anggota_13",
+                      "title": true,
+                      "position": 16
+                    },
+                    {
+                      "name": "anggota_14",
+                      "title": true,
+                      "position": 17
+                    },
+                    {
+                      "name": "anggota_15",
+                      "title": true,
+                      "position": 18
+                    },
+                    {
+                      "name": "anggota_16",
+                      "title": true,
+                      "position": 19
+                    },
+                    {
+                      "name": "anggota_4",
+                      "title": true,
+                      "position": 20
+                    },
+                    {
+                      "name": "anggota_6",
+                      "title": true,
+                      "position": 21
+                    },
+                    {
+                      "name": "anggota_10",
+                      "title": true,
+                      "position": 22
+                    },
+                    {
+                      "name": "anggota_12",
+                      "title": true,
+                      "position": 23
+                    },
+                    {
+                      "name": "anggota_17",
+                      "title": true,
+                      "position": 24
+                    },
+                    {
+                      "name": "anggota_18",
+                      "title": true,
+                      "position": 25
+                    },
+                    {
+                      "name": "anggota_19",
+                      "title": true,
+                      "position": 26
+                    },
+                    {
+                      "name": "anggota_20",
+                      "title": true,
+                      "position": 27
+                    },
+                    {
+                      "name": "anggota_21",
+                      "title": true,
+                      "position": 28
+                    },
+                    {
+                      "name": "anggota_22",
+                      "title": true,
+                      "position": 29
+                    },
+                    {
+                      "name": "anggota_23",
+                      "title": true,
+                      "position": 30
+                    },
+                    {
+                      "name": "anggota_24",
+                      "title": true,
+                      "position": 31
+                    },
+                    {
+                      "name": "anggota_25",
+                      "title": true,
+                      "position": 32
+                    },
+                    {
+                      "name": "anggota_26",
+                      "title": true,
+                      "position": 33
+                    },
+                    {
+                      "name": "anggota_27",
+                      "title": true,
+                      "position": 34
+                    },
+                    {
+                      "name": "anggota_28",
+                      "title": true,
+                      "position": 35
+                    },
+                    {
+                      "name": "anggota_29",
+                      "title": true,
+                      "position": 36
+                    },
+                    {
+                      "name": "anggota_30",
+                      "title": true,
+                      "position": 37
+                    },
+                    {
+                      "name": "anggota_31",
+                      "title": true,
+                      "position": 38
+                    },
+                    {
+                      "name": "anggota_32",
+                      "title": true,
+                      "position": 39
+                    },
+                    {
+                      "name": "anggota_33",
+                      "title": true,
+                      "position": 40
+                    },
+                    {
+                      "name": "anggota_34",
+                      "title": true,
+                      "position": 41
+                    },
+                    {
+                      "name": "sumber_dan",
+                      "title": true,
+                      "position": 42
+                    }
+                  ],
+                  "width": 226,
+                  "headerColor": {
+                    "color": {
+                      "fixed": "#35AAE5",
+                      "opacity": 1
+                    }
+                  },
+                  "template_type": "mustache"
+                },
+                "legends": []
               }
+              
             ],
             "map_provider": "leaflet",
             "overlays": [
