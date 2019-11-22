@@ -393,58 +393,19 @@ class Peta extends Component {
                     }
                   ],
                   "maxHeight": 180,
-                  "template": `<div class=\"CDB-infowindow\" style=\"width:600px\">
-                    <div class=\"CDB-infowindow-close js-close\"></div>\
-                    <div class=\"CDB-infowindow-container\">    
-                    <div class=\"CDB-infowindow-bg\">      
-                    <div class=\"CDB-infowindow-inner js-inner\">        
-                    <table style=\"border-collapse: collapse ; width: 100%\">   
-                    <tbody>
-                    <tr>    
-                        <td colspan=\"2\" style=\"vertical-align: middle ; text-align: center\"><img src=\"ternak/{{id}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>
-                    </tr>
-                    <tr style=\"background-color: #f2f2f2\"><td>Nomor Ruas</td><td> {{nomor_ruas}} </td> 
-                        <td>Nama Ruas</td><td> {{nama_ruas}}  </td>
-                    </tr>  <tr style=\"background-color: #f2f2f2\">     </tr>  
-                    <tr>    
-                        <td>Jalan</td><td> {{nama_jalan}}  </td>  
-                    </tr>  
-                    <tr style=\"background-color: #f2f2f2\">    
-                        <td>Status</td><td> {{status}} </td>    
-                        <td>Perkerasan</td><td> {{perkerasan}} </td>  
-                    </tr>  
-                    <tr>    
-                        <td>Rec. Fungsi</td><td> {{rec_fungsi}} </td>    
-                        <td>Kondisi</td><td> {{kondisi}} </td>  
-                    </tr>  
-                    <tr style=\"background-color: #f2f2f2\">    
-                        <td>Panjang</td><td> {{panjang_jl}} km</td>    
-                        <td>Lebar</td><td> {{lebar_jln}}  m</td>  
-                    </tr>  
-                    <tr>    
-                        <td>Bahu Kiri</td><td> {{bahu_kiri}} m</td>    
-                        <td>Bahu Kanan</td><td> {{bahu_kanan}} m</td>  </tr>  
-                    <tr style=\"background-color: #f2f2f2\">    
-                        <td>Trotoar Kiri</td><td> {{trotoar_ka}} m</td>    
-                        <td>Trotoar Kanan</td><td> {{trotoar_ki}}  m</td>  
-                    </tr>  
-                    <tr>    
-                        <td>Saluran Kiri</td><td> {{slrn_ki}} m </td>    
-                        <td>Saluran Kanan</td><td> {{slrn_ka}} m</td>  
-                    </tr>
-                    <tr style=\"background-color: #f2f2f2\">    
-                        <td>Koordinat Awal (UTM 50S)</td><td> {{east_awal}} , {{north_awal}} </td>    
-                        <td>Koordinat Akhir (UTM 50S)</td><td> {{east_akhir}} , {{north_akhr}} </td>  
-                    </tr>  
-                    </tbody>
-                    </table>      
-                    </div>    
-                    </div>    
-                        <div class=\"CDB-hook\">      
-                            <div class=\"CDB-hook-inner\"></div>
-                        </div>  
-                    </div>
-                    </div>`,
+                  "template": `
+                  <div class=\"CDB-infowindow CDB-infowindow--light\" style=\"width:600px\">\n  
+                  <div class=\"CDB-infowindow-close js-close\"></div>\n  
+                  <div class=\"CDB-infowindow-container\">\n    
+                  <div class=\"CDB-infowindow-bg\">\n      
+                  <div class=\"CDB-infowindow-inner js-inner\">\n        
+                  <table style=\"border-collapse: collapse ; width: 100%\">\n \n  
+                  <tbody>
+                  <tr>\n   \n
+                  <td colspan=\"2\" style=\"vertical-align: middle ; text-align: center\">
+                  <img src=\"foto_jalan/{{id_foto_aw}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>\n
+                  <td colspan=\"2\" style=\"vertical-align: middle ; text-align: center\">
+                  <img src=\"foto_jalan/{{id_foto_ak}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>\n  </tr>\n  <tr style=\"background-color: #f2f2f2\">\n <td>Kode</td>\n<td> {{name_code}} </td>\n    <td>Nama</td>\n<td> {{nama_jemba}}  </td>\n  </tr>\n  <tr>\n    <td>Tipe</td>\n<td> {{tipe}}  </td>\n  </tr>\n  <tr style=\"background-color: #f2f2f2\">\n    <td>Panjang</td>\n<td> {{panjang}} m</td>\n    <td>Lebar</td>\n<td> {{lebar}} m</td>\n  </tr>\n  <tr>\n    <td>Trotoar Kanan</td>\n<td> {{trotoar_ka}} m </td>\n    <td>Trotoar Kiri</td>\n<td> {{trotoar_ki}} m </td>\n  </tr> \n\n  \n</tbody></table>\n      </div>\n    </div>\n    <div class=\"CDB-hook\">\n      <div class=\"CDB-hook-inner\"></div>\n    </div>\n  </div>\n</div>\n`,
                   "alternative_names": {},
                   "width": 226,
                   "headerColor": {
