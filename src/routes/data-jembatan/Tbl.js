@@ -110,7 +110,7 @@ export class Tbl extends Component{
                 '<td>Trotoar Kiri</td>' + '<td>' + d.trotoar_ki + ' m</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<td>Kondisi</td>' + '<td>' + d.kondisi + ' m</td>' +
+                '<td>Kondisi</td>' + '<td>' + d.kondisi + '</td>' +
                 '</tr>' +
                 '</table>' +
                 '</div>';
