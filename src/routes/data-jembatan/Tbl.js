@@ -144,8 +144,8 @@ export class Tbl extends Component{
                 '<td>Trotoar Kanan </td>' + '<td>' + d.trotoar_ka + ' m</td>' +
                 '<td>Trotoar Kiri</td>' + '<td>' + d.trotoar_ki + ' m</td>' +
                 '</tr>' +
-                '<tr>' +
-                '<td>Kondisi</td>' + '<td>' + d.kondisi + ' m</td>' +
+                '<tr style="background-color: #f2f2f2">' +
+                '<td>Kondisi</td>' + '<td>' + d.kondisi + '</td>' +
                 '</tr>' +
                 '</table>' +
                 '</div>';
