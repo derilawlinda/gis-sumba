@@ -18,7 +18,7 @@ export class Tbl extends Component{
         this.$el = $(this.el);
         const tableName = 'jembatan_1';
         const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
-        const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,id_foto_aw,id_foto_ak,kecamatan,kondisi FROM " + tableName;
+        const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,id_foto_aw,id_foto_ak,kecamatan,kondisi,status_jal FROM " + tableName;
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);      
         var table = this.$el.DataTable(
         {
@@ -74,6 +74,12 @@ export class Tbl extends Component{
                         searchable: true,
                         orderable: true,
                         width: '90px'
+                    }, {
+                        title: 'Status',
+                        data: 'status_jal',
+                        searchable: true,
+                        orderable: true,
+                        width: '90px'
                     }
                 ]
 
@@ -111,6 +117,7 @@ export class Tbl extends Component{
                 '</tr>' +
                 '<tr style="background-color: #f2f2f2">' +
                 '<td>Kondisi</td>' + '<td>' + d.kondisi + '</td>' +
+                '<td>Status</td>' + '<td>' + d.status_jal + '</td>' +
                 '</tr>' +
                 '</table>' +
                 '</div>';
@@ -146,6 +153,7 @@ export class Tbl extends Component{
                 '</tr>' +
                 '<tr style="background-color: #f2f2f2">' +
                 '<td>Kondisi</td>' + '<td>' + d.kondisi + '</td>' +
+                '<td>Kondisi</td>' + '<td>' + d.status_jal + '</td>' +
                 '</tr>' +
                 '</table>' +
                 '</div>';
