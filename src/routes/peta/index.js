@@ -390,6 +390,11 @@ class Peta extends Component {
                       "name": "url_akhir",
                       "title": true,
                       "position": 11
+                    },
+                    {
+                      "name": "kondisi",
+                      "title": true,
+                      "position": 12
                     }
                   ],
                   "maxHeight": 180,
@@ -405,7 +410,22 @@ class Peta extends Component {
                   <td colspan=\"2\" style=\"vertical-align: middle ; text-align: center\">
                   <img src=\"foto_jalan/{{id_foto_aw}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>\n
                   <td colspan=\"2\" style=\"vertical-align: middle ; text-align: center\">
-                  <img src=\"foto_jalan/{{id_foto_ak}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>\n  </tr>\n  <tr style=\"background-color: #f2f2f2\">\n <td>Kode</td>\n<td> {{name_code}} </td>\n    <td>Nama</td>\n<td> {{nama_jemba}}  </td>\n  </tr>\n  <tr>\n    <td>Tipe</td>\n<td> {{tipe}}  </td>\n  </tr>\n  <tr style=\"background-color: #f2f2f2\">\n    <td>Panjang</td>\n<td> {{panjang}} m</td>\n    <td>Lebar</td>\n<td> {{lebar}} m</td>\n  </tr>\n  <tr>\n    <td>Trotoar Kanan</td>\n<td> {{trotoar_ka}} m </td>\n    <td>Trotoar Kiri</td>\n<td> {{trotoar_ki}} m </td>\n  </tr> \n\n  \n</tbody></table>\n      </div>\n    </div>\n    <div class=\"CDB-hook\">\n      <div class=\"CDB-hook-inner\"></div>\n    </div>\n  </div>\n</div>\n`,
+                  <img src=\"foto_jalan/{{id_foto_ak}}.jpg\" style=\"padding: 5px\" height=\"200px\"></td>\n  
+                  </tr>\n  <tr style=\"background-color: #f2f2f2\">\n 
+                  <td>Kode</td>\n<td> {{name_code}} </td>\n    
+                  <td>Nama</td>\n<td> {{nama_jemba}}  </td>\n  
+                  </tr>\n  
+                  <tr>\n    
+                  <td>Tipe</td>\n<td> {{tipe}}  </td>\n  
+                  </tr>\n  <tr style=\"background-color: #f2f2f2\">\n    
+                  <td>Panjang</td>\n<td> {{panjang}} m</td>\n    
+                  <td>Lebar</td>\n<td> {{lebar}} m</td>\n  </tr>\n  
+                  <tr>\n    
+                  <td>Trotoar Kanan</td>\n<td> {{trotoar_ka}} m </td>\n    
+                  <td>Trotoar Kiri</td>\n<td> {{trotoar_ki}} m </td>\n  </tr> 
+                  <tr>\n
+                  <td>Kondisi</td>\n<td> {{kondisi}} m </td>\n
+                  \n\n  \n</tbody></table>\n      </div>\n    </div>\n    <div class=\"CDB-hook\">\n      <div class=\"CDB-hook-inner\"></div>\n    </div>\n  </div>\n</div>\n`,
                   "alternative_names": {},
                   "width": 226,
                   "headerColor": {

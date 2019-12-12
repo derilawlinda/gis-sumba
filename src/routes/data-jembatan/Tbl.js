@@ -18,7 +18,7 @@ export class Tbl extends Component{
         this.$el = $(this.el);
         const tableName = 'jembatan_1';
         const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
-        const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,id_foto_aw,id_foto_ak,kecamatan FROM " + tableName;
+        const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,id_foto_aw,id_foto_ak,kecamatan,kondisi FROM " + tableName;
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);      
         var table = this.$el.DataTable(
         {
@@ -67,6 +67,13 @@ export class Tbl extends Component{
                         searchable: true,
                         orderable: true,
                         width: '90px'
+                    },
+                    {
+                        title: 'Kondisi',
+                        data: 'kondisi',
+                        searchable: true,
+                        orderable: true,
+                        width: '90px'
                     }
                 ]
 
@@ -102,6 +109,9 @@ export class Tbl extends Component{
                 '<td>Trotoar Kanan </td>' + '<td>' + d.trotoar_ka + ' m</td>' +
                 '<td>Trotoar Kiri</td>' + '<td>' + d.trotoar_ki + ' m</td>' +
                 '</tr>' +
+                '<tr>' +
+                '<td>Kondisi</td>' + '<td>' + d.kondisi + ' m</td>' +
+                '</tr>' +
                 '</table>' +
                 '</div>';
             }else{
@@ -133,6 +143,9 @@ export class Tbl extends Component{
                 '<tr>' +
                 '<td>Trotoar Kanan </td>' + '<td>' + d.trotoar_ka + ' m</td>' +
                 '<td>Trotoar Kiri</td>' + '<td>' + d.trotoar_ki + ' m</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>Kondisi</td>' + '<td>' + d.kondisi + ' m</td>' +
                 '</tr>' +
                 '</table>' +
                 '</div>';
