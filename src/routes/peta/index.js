@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../css/builder_embed.css';
 import '../../css/deep_insights_new.css'
 import '../../css/custom.css'
+import './const'
 
 class Peta extends Component {
 
@@ -37,7 +38,7 @@ class Peta extends Component {
         ],
         "datasource": {
           "user_name": "prod",
-          "maps_api_template": "https://layers.gis-sbd.com:443/user/{user}",
+          "maps_api_template": "https://"+global.config.carto_url+":443/user/{user}",
           "stat_tag": "6b6596cc-00f0-4f98-ad55-7661c8844914",
           "template_name": "tpl_6b6596cc_00f0_4f98_ad55_7661c8844914"
         },
@@ -508,7 +509,7 @@ class Peta extends Component {
         "user": {
           "fullname": "prod",
           "avatar_url": "/assets/unversioned/images/avatars/avatar_marker_red.png",
-          "profile_url": "https://layers.gis-sbd.com/user/prod"
+          "profile_url": "https://"+global.config.carto_url+"/user/prod"
         },
         "version": "3.0.0",
         "widgets": [
@@ -746,9 +747,9 @@ class Peta extends Component {
       window.stateJSON = JSON.parse('{\"map\":{\"ne\":[-9.920154922509878,118.81164550781251],\"sw\":[-9.18073598316442,119.55871582031251],\"center\":[-9.550606061543068,119.18493903096152],\"zoom\":10},\"widgets\":{\"ae28948a-edad-4192-adc0-6e8345936cf3\":{\"collapsed\":true},\"789f311a-f29a-4d2c-ba84-dfd43ee1da04\":{\"collapsed\":true},\"60e67d1c-b089-4368-a82e-51cc4f07e036\":{\"collapsed\":true},\"badfa297-2f02-46bc-b5d7-ed9b97072048\":{\"collapsed\":true}}}');
       window.authTokens = JSON.parse('[]');
       window.geocoderConfiguration = JSON.parse('{\"provider\":null,\"mapbox\":{\"search_bar_api_key\":\"\"},\"tomtom\":{\"search_bar_api_key\":\"\"}}');
-      window.ownerData = JSON.parse('{\"base_url\":\"https://layers.gis-sbd.com/user/prod\",\"account_type\":\"[DEDICATED]\"}');
+      window.ownerData = JSON.parse('{\"base_url\":\"https://'+global.config.carto_url+'/user/prod\",\"account_type\":\"[DEDICATED]\"}');
         let scripts = [
-            { src: "https://layers.gis-sbd.com/assets/1.0.0-assets.136/javascripts/builder_embed.js" }
+            { src: "https://"+global.config.carto_url+"/assets/1.0.0-assets.136/javascripts/builder_embed.js" }
         ]
 
 

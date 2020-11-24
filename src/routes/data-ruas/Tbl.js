@@ -1,6 +1,7 @@
 import '../../css/jquery.dataTables.css'
 import React, { Component } from 'react'
 import L from "leaflet"
+import './const';
 
 
 var Wkt = require("wicket")
@@ -16,7 +17,7 @@ export class Tbl extends Component{
 
     componentDidMount(){
         this.$el = $(this.el);
-        const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
+        const cdbEndpoint = 'https://'+global.config.carto_url+'/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
         const cdbQuery = `select row_number() over () as id, nama_ruas,
             sum((case when Kondisi = 'Baik' then panjang_jl else 0 end)) as "baik",
             sum((case when Kondisi = 'Rusak Ringan' then panjang_jl else 0 end)) as "rusak_ringan",

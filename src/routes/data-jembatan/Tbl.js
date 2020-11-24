@@ -1,6 +1,7 @@
 import '../../css/jquery.dataTables.css'
 import React, { Component } from 'react'
 import L from "leaflet"
+import './const';
 
 
 var Wkt = require("wicket")
@@ -17,7 +18,7 @@ export class Tbl extends Component{
     componentDidMount(){
         this.$el = $(this.el);
         const tableName = 'jembatan_1';
-        const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
+        const cdbEndpoint = 'https://'+global.config.carto_url+'/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
         const cdbQuery = "SELECT cartodb_id, ST_AsText(the_geom) as wkt, nama_jemba,tipe,name_code,panjang,lebar,trotoar_ka,trotoar_ki,id_foto_aw,id_foto_ak,kecamatan,kondisi,status_jal FROM " + tableName;
         const queryURIencoded = cdbEndpoint + encodeURI(cdbQuery);      
         var table = this.$el.DataTable(

@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import '../../css/simple_table.css'
 import '../../css/jquery.dataTables.css'
 import { Tbl } from './Tbl'
+import './const'
 
 
 class Ringkasan extends PureComponent {
@@ -24,7 +25,7 @@ class Ringkasan extends PureComponent {
    
     componentWillMount() {
         
-        const cdbEndpoint = 'https://layers.gis-sbd.com/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
+        const cdbEndpoint = 'https://'+global.config.carto_url+'/user/prod/api/v2/sql?api_key=flYIQpNn1yHrnVuWXfQypg&q=';
         const cdbQuery = `select status,
             sum((case when Kondisi = 'Baik' then panjang_jl else 0 end)) as "Baik",
             sum((case when Kondisi = 'Rusak Ringan' then panjang_jl else 0 end)) as "Rusak Ringan",
